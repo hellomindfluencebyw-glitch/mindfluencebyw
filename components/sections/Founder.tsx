@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Section from "./Section";
+import { assetPath } from "@/lib/assetPath";
 
 const CREDENTIALS = ["BA, Psychology (Consumer Behaviour focus)", "Nairobi, Kenya", "3+ Years in Market"];
 
@@ -130,7 +131,7 @@ export default function Founder() {
     <Section id="founder" eyebrow="THE FOUNDER" title="I was fascinated by two worlds.">
       <div className="founder-grid">
         <div className="founder-portrait">
-          <img src="/founder/wambui.jpg" alt="Wambui Ng'ang'a, founder of Mindfluence by W" />
+          <img src={assetPath("/founder/wambui.jpg")} alt="Wambui Ng'ang'a, founder of Mindfluence by W" />
         </div>
 
         <div className="founder-bio-col">
