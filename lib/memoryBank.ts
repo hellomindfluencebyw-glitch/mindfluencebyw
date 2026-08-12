@@ -4,7 +4,7 @@ export type MemoryProject = {
   tagline: string;
   assetDir: string;
   slideCount: number;
-  status: "case study drafted" | "campaign complete" | "in progress";
+  status: "case study drafted" | "campaign complete" | "in progress" | "ongoing campaign";
   question?: string;
   insight?: string;
   psychology?: string;
@@ -116,7 +116,7 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     tagline: '"Made for Friendship" — Tag Your Murata UGC mechanic',
     assetDir: "/work/murata-wakwa/",
     slideCount: 1,
-    status: "case study drafted",
+    status: "ongoing campaign",
   },
   {
     id: "mindfluence-content",
