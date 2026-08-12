@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { assetPath } from "@/lib/assetPath";
 
 export default function CircularCarousel({
   slideCount,
@@ -40,7 +41,7 @@ export default function CircularCarousel({
           const offset = i - active;
           const abs = Math.abs(offset);
           const isActive = offset === 0;
-          const src = `${assetDir}${String(i + 1).padStart(2, "0")}.jpg`;
+          const src = assetPath(`${assetDir}${String(i + 1).padStart(2, "0")}.jpg`);
           return (
             <button
               key={i}
