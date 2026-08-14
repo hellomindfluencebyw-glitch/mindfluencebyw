@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import PathBurst from "@/components/PathBurst";
 import AmbientTrail from "@/components/AmbientTrail";
+import SoundToggle from "@/components/SoundToggle";
 import "./globals.css";
 
 // next/font self-hosts these at build time: no render-blocking Google Fonts
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AmbientTrail />
         {children}
         <PathBurst />
+        <SoundToggle />
       </body>
     </html>
   );
