@@ -4,7 +4,7 @@ export type MemoryProject = {
   tagline: string;
   assetDir: string;
   slideCount: number;
-  status: "case study drafted" | "campaign complete" | "in progress" | "ongoing campaign";
+  status: "client work" | "independent audit" | "ongoing campaign" | "in-house";
   question?: string;
   insight?: string;
   psychology?: string;
@@ -26,8 +26,8 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     title: "Muratish",
     tagline: '"One Kenya. One Cup." — bottled muratina, founder Mike Okoth',
     assetDir: "/work/muratish/",
-    slideCount: 5,
-    status: "campaign complete",
+    slideCount: 8,
+    status: "client work",
     question:
       "Muratish had a real cultural product, muratina, with roots most competitors can't manufacture, but zero brand positioning: 268 followers, 435 following, and a bio that read like a product label. How do you turn heritage into a brand people want to be seen with?",
     insight:
@@ -50,8 +50,8 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     title: "Testimony of Three",
     tagline: '"First Step" launch — leather goods, founder Wesley Karanja',
     assetDir: "/work/testimony-of-three/",
-    slideCount: 2,
-    status: "campaign complete",
+    slideCount: 5,
+    status: "client work",
     question:
       "Wesley Karanja had a craft, not yet a brand: a warm 13% engagement rate (more than double the 6% nano-account average) but only 11 posts, no rhythm, and zero founder-story content. Do we build the identity first, or the audience first?",
     insight:
@@ -75,7 +75,7 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     tagline: "Hair care formulation brand, 0→1 build — Lagos, Nigeria",
     assetDir: "/work/aether-aura/",
     slideCount: 2,
-    status: "in progress",
+    status: "client work",
     question:
       "Five real hair care products with a working formulation, but no logo, no packaging, no Instagram, and zero public identity. Most case studies start by auditing what exists. This one starts with nothing to audit.",
     insight:
@@ -93,7 +93,7 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     tagline: "B2B farm-to-kitchen potato processor — Nairobi",
     assetDir: "/work/potato-treats/",
     slideCount: 1,
-    status: "campaign complete",
+    status: "independent audit",
     question:
       "A farm-to-kitchen potato processor was posting consumer-style content to 57 followers and getting almost nothing back, except one processing video that hit a 53% engagement rate. Why did one post behave completely differently from the rest?",
     insight:
@@ -101,9 +101,9 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     psychology:
       "Pain-Point Framing, backed by Authority Building, the Transparency Effect, and Trust Signalling: speak to a specific business frustration, and prove capability by showing it rather than claiming it.",
     creative:
-      "Every caption reframed around restaurant-buyer pain points (prep time, consistency, waste reduction), Process Transparency established as the primary content pillar, the Rongai/Nakuru farm origin story led as a traceability claim competitors couldn't make, and a direct B2B CTA added to every post.",
+      "The proposed reframe: captions rewritten around restaurant-buyer pain points (prep time, consistency, waste reduction), Process Transparency established as the primary content pillar, the Rongai/Nakuru farm origin story led as a traceability claim competitors couldn't make, and a direct B2B CTA added to every post.",
     result:
-      "The repositioning is built around the confirmed 53% peak engagement rate and the audience-read that triggered it. Reach and follower figures post-repositioning are still coming in.",
+      "This was an independent audit, not managed campaign work, so there's no post-repositioning tracking data. The value is in the diagnostic: the confirmed 53% peak engagement rate on that one video, and correctly reading who was actually responding to it.",
     memory: "The best insight in an account is often the one outlier post everyone else would ignore.",
     principle: "pain-point-framing",
     howItAppeared:
@@ -123,8 +123,8 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     title: "Mindfluence by W",
     tagline: "The agency's own account — psychology applied to every post",
     assetDir: "/work/mindfluence-content/",
-    slideCount: 1,
-    status: "in progress",
+    slideCount: 3,
+    status: "in-house",
     question:
       "What does it look like when a social media strategist runs their own account the way they'd run a client's?",
     insight:

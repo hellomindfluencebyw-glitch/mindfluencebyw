@@ -7,6 +7,7 @@ import MemoryNode from "./hippocampus/MemoryNode";
 import MemoryModal from "./hippocampus/MemoryModal";
 import { MEMORY_PROJECTS } from "@/lib/memoryBank";
 import { triggerPathBurst } from "@/components/PathBurst";
+import { playSound } from "@/lib/sound";
 
 const POSITIONS = [
   { top: "14%", left: "12%" },
@@ -37,6 +38,7 @@ export default function Hippocampus() {
       (rect.left + rect.width / 2) / window.innerWidth,
       (rect.top + rect.height / 2) / window.innerHeight
     );
+    playSound("memoryActivate");
   }
 
   function handleClose() {

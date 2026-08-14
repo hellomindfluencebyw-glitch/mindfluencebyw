@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { JOURNEY } from "@/lib/journey";
 import { triggerPathBurst } from "./PathBurst";
+import { playSound } from "@/lib/sound";
 
 export default function NeuralSpine() {
   const [activeId, setActiveId] = useState("hero");
@@ -36,6 +37,7 @@ export default function NeuralSpine() {
 
   function goTo(id: string) {
     triggerPathBurst(0.5, 0.5);
+    playSound("navClick");
     window.setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 180);

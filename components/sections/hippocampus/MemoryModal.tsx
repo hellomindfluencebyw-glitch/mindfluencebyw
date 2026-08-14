@@ -6,6 +6,7 @@ import { MemoryProject } from "@/lib/memoryBank";
 import CircularCarousel from "./CircularCarousel";
 import WhyItWorked from "./WhyItWorked";
 import ClickMotive from "./ClickMotive";
+import { playSound } from "@/lib/sound";
 
 const FIELDS: { key: keyof MemoryProject; label: string; prompt: string }[] = [
   { key: "question", label: "The Question", prompt: "What were we trying to solve?" },
@@ -30,6 +31,10 @@ export default function MemoryModal({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  useEffect(() => {
+    if (project) playSound("caseStudyOpen");
+  }, [project]);
 
   return (
     <AnimatePresence>

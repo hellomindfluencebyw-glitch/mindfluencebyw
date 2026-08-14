@@ -40,8 +40,7 @@ export const RESULTS: ProjectResults[] = [
     signals: [
       { label: "Peak Engagement Rate", value: "53%" },
       { label: "Audience Read", value: "B2B, not consumer" },
-      { label: "Reach Post-Repositioning", value: null },
-      { label: "Follower Growth Post-Repositioning", value: null },
+      { label: "Engagement Type", value: "Independent audit — no managed tracking" },
     ],
   },
   {

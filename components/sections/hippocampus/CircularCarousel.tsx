@@ -47,7 +47,7 @@ export default function CircularCarousel({
               key={i}
               className={`carousel-slide ${isActive ? "is-active" : ""}`}
               style={{
-                transform: `translateX(${offset * 78}px) scale(${isActive ? 1 : 0.78}) rotateY(${
+                transform: `translateX(${offset * 72}%) scale(${isActive ? 1 : 0.78}) rotateY(${
                   offset * -18
                 }deg)`,
                 zIndex: 10 - abs,

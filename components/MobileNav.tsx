@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { JOURNEY } from "@/lib/journey";
 import { triggerPathBurst } from "./PathBurst";
+import { playSound } from "@/lib/sound";
 
 // Fan the nodes across a quarter-circle arc opening up and to the left
 // from the FAB, which sits in the bottom-right corner.
@@ -67,6 +68,7 @@ export default function MobileNav() {
     setOpen(false);
     fabRef.current?.focus();
     triggerPathBurst(0.85, 0.9);
+    playSound("navClick");
     window.setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 180);
