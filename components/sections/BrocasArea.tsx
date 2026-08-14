@@ -1,6 +1,9 @@
 import Section from "./Section";
-import ServiceNetwork from "./ServiceNetwork";
-import { CONTENT_SERVICES } from "@/lib/services";
+import ServiceCategoryList from "./ServiceCategoryList";
+import { SERVICE_CATEGORIES } from "@/lib/services";
+
+const CATEGORY_IDS = ["content-system", "growth-engine", "campaign-studio"];
+const categories = SERVICE_CATEGORIES.filter((c) => CATEGORY_IDS.includes(c.id));
 
 export default function BrocasArea() {
   return (
@@ -10,7 +13,7 @@ export default function BrocasArea() {
       title="Where the mind finds language"
       description="Everything connected through language: the words that carry the strategy and the psychology into what people actually read."
     >
-      <ServiceNetwork hubLabel="Content Studio" services={CONTENT_SERVICES} />
+      <ServiceCategoryList categories={categories} />
     </Section>
   );
 }

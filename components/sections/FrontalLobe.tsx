@@ -1,6 +1,9 @@
 import Section from "./Section";
-import ServiceNetwork from "./ServiceNetwork";
-import { STRATEGY_SERVICES } from "@/lib/services";
+import ServiceCategoryList from "./ServiceCategoryList";
+import { SERVICE_CATEGORIES } from "@/lib/services";
+
+const CATEGORY_IDS = ["strategy", "brand-identity", "behaviour-lab"];
+const categories = SERVICE_CATEGORIES.filter((c) => CATEGORY_IDS.includes(c.id));
 
 export default function FrontalLobe() {
   return (
@@ -10,7 +13,7 @@ export default function FrontalLobe() {
       title="Where every campaign begins"
       description="Strategy is the part of the mind that plans, weighs and decides. This is where Mindfluence works before a single post gets written."
     >
-      <ServiceNetwork hubLabel="Strategy" services={STRATEGY_SERVICES} />
+      <ServiceCategoryList categories={categories} />
     </Section>
   );
 }
