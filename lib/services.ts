@@ -1,102 +1,96 @@
-export type ServiceNode = {
-  id: string;
-  label: string;
+export type Service = {
+  name: string;
   description: string;
-  // Other real service ids this one works alongside. Used to show the
-  // services as one connected system rather than isolated cards.
-  relatesTo?: string[];
 };
 
-export const STRATEGY_SERVICES: ServiceNode[] = [
-  {
-    id: "social-strategy",
-    label: "Social Media Strategy",
-    description:
-      "A plan for what gets posted, when, and why, built around how your specific audience actually thinks and decides, not generic best practices.",
- 
-    relatesTo: ["content-strategy", "social-audits"],
-  },
-  {
-    id: "brand-strategy",
-    label: "Brand Strategy",
-    description:
-      "The positioning underneath everything else: what a brand stands for, who it's for, and why that matters to the people you want to reach.",
- 
-    relatesTo: ["content-strategy", "marketing-psychology"],
-  },
-  {
-    id: "marketing-psychology",
-    label: "Marketing Psychology",
-    description:
-      "The behavioural science layer: applying named psychological frameworks, like social proof, loss aversion, and identity signalling, to how a campaign is built.",
- 
-    relatesTo: ["consumer-behaviour", "brand-strategy"],
-  },
-  {
-    id: "consumer-behaviour",
-    label: "Consumer Behaviour",
-    description:
-      "Understanding why people actually buy, scroll past, or share something, so creative decisions aren't guesses.",
- 
-    relatesTo: ["marketing-psychology", "social-audits"],
-  },
-  {
-    id: "social-audits",
-    label: "Social Media Audits",
-    description:
-      "A structured look at what's working, what isn't, and what's being left on the table across a brand's existing content.",
- 
-    relatesTo: ["social-strategy", "consumer-behaviour"],
-  },
-  {
-    id: "content-strategy",
-    label: "Content Strategy",
-    description:
-      "The bridge between brand strategy and what actually gets made: themes, formats, and cadence mapped to a goal.",
- 
-    relatesTo: ["social-strategy", "brand-strategy"],
-  },
-];
+export type ServiceCategory = {
+  id: string;
+  name: string;
+  tagline: string;
+  services: Service[];
+};
 
-export const CONTENT_SERVICES: ServiceNode[] = [
+export const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
-    id: "carousels",
-    label: "Carousels",
-    description:
-      "Multi-slide posts built to be swiped through in full, using pacing and curiosity to keep attention slide to slide.",
- 
-    relatesTo: ["creative-concepts", "captions"],
+    id: "strategy",
+    name: "Strategy",
+    tagline: "We plan with purpose.",
+    services: [
+      { name: "Brand Strategy", description: "Position your brand to stand out." },
+      { name: "Social Media Strategy", description: "Data-driven plans aligned with business goals." },
+      { name: "Marketing Consulting", description: "Expert guidance for smarter marketing decisions." },
+      { name: "Launch Planning", description: "Strategic launch plans designed to create impact." },
+    ],
   },
   {
-    id: "scripts",
-    label: "Scripts",
-    description:
-      "Written structure for video and voice content, built around a hook, a build, and a payoff.",
- 
-    relatesTo: ["creative-concepts", "captions"],
+    id: "content-system",
+    name: "Content System",
+    tagline: "Content that connects.",
+    services: [
+      { name: "Content Creation", description: "Scroll-stopping content that tells your story." },
+      {
+        name: "Social Media Management",
+        description: "We handle your content so you can focus on your business.",
+      },
+      { name: "Copywriting", description: "Words that inspire, engage and sell." },
+      { name: "Video & Reels", description: "Short-form video designed to drive reach and results." },
+    ],
   },
   {
-    id: "captions",
-    label: "Captions",
-    description:
-      "The copy underneath the visual, doing the psychological work of framing, context, or a call to action.",
- 
-    relatesTo: ["carousels", "scripts"],
+    id: "brand-identity",
+    name: "Brand Identity",
+    tagline: "Build a brand people believe in.",
+    services: [
+      { name: "Brand Positioning", description: "Own your space in the market." },
+      {
+        name: "Brand Voice",
+        description: "A voice that reflects who you are and connects with your audience.",
+      },
+      { name: "Visual Identity", description: "Design that makes your brand instantly recognisable." },
+      { name: "Personal Branding", description: "Build influence as a brand, not just a business." },
+    ],
   },
   {
-    id: "creative-concepts",
-    label: "Creative Concepts",
-    description:
-      "The core idea behind a campaign or series, before it's translated into individual pieces of content.",
- 
-    relatesTo: ["carousels", "scripts", "content-systems"],
+    id: "growth-engine",
+    name: "Growth Engine",
+    tagline: "Grow with intention.",
+    services: [
+      { name: "Organic Growth", description: "Grow your audience organically and sustainably." },
+      { name: "Social SEO", description: "Optimise your content to be discovered." },
+      {
+        name: "Paid Ads",
+        description: "Strategic advertising designed to deliver measurable results.",
+      },
+      { name: "Influencer Marketing", description: "Partner with the right voices to expand your reach." },
+    ],
   },
   {
-    id: "content-systems",
-    label: "Content Systems",
-    description:
-      "Repeatable templates and formats so a brand's content stays consistent without starting from zero each time.",
- 
-    relatesTo: ["creative-concepts"],
+    id: "campaign-studio",
+    name: "Campaign Studio",
+    tagline: "Ideas that move people.",
+    services: [
+      { name: "Product Launches", description: "Launch with strategy and make an impact." },
+      { name: "Hospitality Marketing", description: "Marketing that fills rooms and builds loyalty." },
+      { name: "Seasonal Campaigns", description: "Timely campaigns that capture attention." },
+      { name: "Community Building", description: "Build communities that engage and stay." },
+      {
+        name: "Event & Experience Marketing",
+        description: "Experiences that strengthen your brand both offline and online.",
+      },
+    ],
+  },
+  {
+    id: "behaviour-lab",
+    name: "Behaviour Lab",
+    tagline: "Psychology drives performance.",
+    services: [
+      { name: "Consumer Behaviour", description: "Understand your audience on a deeper level." },
+      { name: "Analytics & Reporting", description: "Clear reports that show what's working." },
+      { name: "Market Research", description: "Data-backed insights for better decisions." },
+      {
+        name: "Performance Tracking",
+        description: "Track, analyse and optimise performance for growth.",
+      },
+    ],
   },
 ];
