@@ -1,101 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { triggerPathBurst } from "@/components/PathBurst";
 
-// Paste your Formspree form ID here once you've created one for free at
-// https://formspree.io (New Form -> copy the ID from the endpoint URL).
-// The form below activates automatically the moment this isn't empty.
-const FORMSPREE_ID = "";
+const FORMSPREE_ID = "xvkprlpd";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type FormFields = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function ContactForm() {
-  const [values, setValues] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<Status>("idle");
-  const connected = FORMSPREE_ID.length > 0;
+  const [state, handleSubmit] = useForm<FormFields>(FORMSPREE_ID);
+  const hasBurst = useRef(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!connected || status === "sending") return;
-
-    setStatus("sending");
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-
-      if (res.ok) {
-        setStatus("sent");
-        setValues({ name: "", email: "", message: "" });
-        triggerPathBurst(0.5, 0.5);
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
+  useEffect(() => {
+    if (state.succeeded && !hasBurst.current) {
+      hasBurst.current = true;
+      triggerPathBurst(0.5, 0.5);
     }
-  }
+    if (!state.succeeded) {
+      hasBurst.current = false;
+    }
+  }, [state.succeeded]);
+
+  const hasGeneralError = !state.submitting && !state.succeeded && !!state.errors;
 
   return (
     <form className="connect-form" onSubmit={handleSubmit}>
       <div className="connect-field">
         <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          required
-          value={values.name}
-          onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
-        />
+        <input id="name" name="name" required disabled={state.submitting} />
+        <ValidationError prefix="Name" field="name" errors={state.errors} className="connect-field-error" />
       </div>
 
       <div className="connect-field">
         <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          required
-          value={values.email}
-          onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
-        />
+        <input id="email" name="email" type="email" required disabled={state.submitting} />
+        <ValidationError prefix="Email" field="email" errors={state.errors} className="connect-field-error" />
       </div>
 
       <div className="connect-field">
         <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
-          rows={4}
-          required
-          value={values.message}
-          onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
-        />
+        <textarea id="message" name="message" rows={4} required disabled={state.submitting} />
+        <ValidationError prefix="Message" field="message" errors={state.errors} className="connect-field-error" />
       </div>
 
       <button
         type="submit"
         className="connect-submit"
-        disabled={!connected || status === "sending" || status === "sent"}
+        disabled={state.submitting || state.succeeded}
       >
-        {status === "sending" ? "Sending…" : status === "sent" ? "Sent" : "Send"}
+        {state.submitting ? "Sending…" : state.succeeded ? "Sent" : "Send"}
       </button>
 
       <AnimatePresence mode="wait">
-        {!connected && (
-          <motion.p
-            key="disconnected"
-            className="connect-note"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            This form isn't connected yet, add a Formspree form ID in ContactForm.tsx to
-            activate it.
-          </motion.p>
-        )}
-        {status === "sent" && (
+        {state.succeeded && (
           <motion.p
             key="sent"
             className="connect-note connect-note--sent"
@@ -106,7 +69,7 @@ export default function ContactForm() {
             Message sent. I'll be in touch soon.
           </motion.p>
         )}
-        {status === "error" && (
+        {hasGeneralError && (
           <motion.p
             key="error"
             className="connect-note connect-note--error"
