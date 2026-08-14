@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ThoughtCycle from "./ThoughtCycle";
 import { triggerPathBurst } from "@/components/PathBurst";
+import { playSound } from "@/lib/sound";
 
 // BrainScene touches window/canvas — load client-side only.
 const BrainScene = dynamic(() => import("./BrainScene"), { ssr: false });
@@ -17,14 +18,27 @@ export default function Hero() {
   const [pulseTarget, setPulseTarget] = useState<{ x: number; y: number; ts: number } | null>(
     null
   );
+  const soundTouched = useRef(false);
 
   const handleThought = useCallback((ndc: { x: number; y: number }) => {
     setPulseTarget({ ...ndc, ts: Date.now() });
   }, []);
 
+  // Browsers only treat discrete gestures (click/tap/key) as valid for
+  // unlocking audio — mousemove (which drives the "Move to interact" cue
+  // below) does not reliably count. So the hero's sound uses its own
+  // click-based trigger, first genuine tap/click anywhere on the brain.
+  function handleHeroClick() {
+    if (soundTouched.current) return;
+    soundTouched.current = true;
+    playSound("heroTouch");
+  }
+
   function handleExplore() {
     // 1. headline fades (handled by zoomState !== "idle" below)
     setZoomState("entering");
+    soundTouched.current = true; // avoid double-firing heroTouch via bubbling
+    playSound("heroExplore");
     // 2-6. brain enlarges / activity increases / regions illuminate — BrainScene
     // reacts to zoomState via the `entering` and `zoomed` props.
     window.setTimeout(() => setZoomState("inside"), 450);
@@ -42,7 +56,7 @@ export default function Hero() {
   const entering = zoomState === "entering";
 
   return (
-    <section className="hero" id="hero">
+    <section className="hero" id="hero" onClick={handleHeroClick}>
       <div className="canvas-wrap">
         <BrainScene
           zoomed={zoomed}

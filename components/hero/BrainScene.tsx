@@ -145,6 +145,12 @@ function Brain({
     const pulseActive = pulseAge < 0.8;
     const pulseDecay = pulseActive ? 1 - pulseAge / 0.8 : 0;
 
+    // "The mind coming online" — a one-time, slow ease-in of ambient shimmer
+    // intensity over the first few seconds after mount. Not a loop, not a
+    // heartbeat — just a single calm ramp up to full life.
+    const wakeRaw = prefersReduced ? 1 : Math.min(1, t / 3.2);
+    const wake = prefersReduced ? 1 : 1 - Math.pow(1 - wakeRaw, 3);
+
     for (let i = 0; i < NEURON_COUNT; i++) {
       tmpA.set(posAttr.getX(i), posAttr.getY(i), posAttr.getZ(i));
       tmpA.applyMatrix4(group.matrixWorld);
@@ -160,7 +166,8 @@ function Brain({
         h = Math.max(h, boost);
       }
       highlight[i] = h;
-      const pulse = 0.5 + 0.5 * Math.sin(t * 1.6 + i * 0.37) * (entering ? 1.6 : 1);
+      const pulse =
+        (0.5 + 0.5 * Math.sin(t * 1.6 + i * 0.37) * (entering ? 1.6 : 1)) * (0.35 + 0.65 * wake);
       const mix = Math.min(1, h * 1.4 + pulse * 0.12);
       const c = COLOR_TEAL_DIM.clone().lerp(COLOR_TEAL, mix);
       if (h > 0.5) c.lerp(COLOR_TEAL_HOT, (h - 0.5) * 1.6);
