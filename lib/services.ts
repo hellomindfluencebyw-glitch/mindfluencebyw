@@ -85,6 +85,11 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: "Psychology drives performance.",
     services: [
       { name: "Consumer Behaviour", description: "Understand your audience on a deeper level." },
+      {
+        name: "Social Media Audit",
+        description:
+          "A full audit across Instagram, Facebook and TikTok: profile optimization, content performance, competitor positioning, and where the growth opportunities actually are.",
+      },
       { name: "Analytics & Reporting", description: "Clear reports that show what's working." },
       { name: "Market Research", description: "Data-backed insights for better decisions." },
       {

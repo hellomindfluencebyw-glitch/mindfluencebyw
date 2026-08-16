@@ -58,7 +58,11 @@ export function setSoundEnabled(value: boolean) {
   if (typeof window !== "undefined") {
     window.localStorage.setItem("mindfluence-sound", value ? "on" : "off");
   }
-  if (value) getContext();
+  if (value) {
+    getContext();
+  } else {
+    stopAmbient();
+  }
 }
 
 export function playSound(name: SoundName) {
@@ -66,6 +70,11 @@ export function playSound(name: SoundName) {
   if (!isSoundEnabled()) return;
   const audioCtx = getContext();
   if (!audioCtx) return;
+
+  // Any real sound firing means we're inside a verified user gesture with
+  // sound enabled — the same safe conditions the idle ambience needs, so
+  // it piggybacks here rather than inventing a separate gesture check.
+  ensureAmbientStarted();
 
   switch (name) {
     case "navClick":
@@ -98,4 +107,47 @@ export function playSound(name: SoundName) {
       tone(audioCtx, 1440, 0.22, 0.2, 0.008, "sine");
       break;
   }
+}
+
+// ---------------------------------------------------------------------
+// Idle neural ambience — an extremely quiet, irregular scatter of faint
+// synaptic-click sounds that plays while the brain is idle and sound is
+// on. Not a drone, not a loop on a fixed beat: each click schedules the
+// next one after a randomized gap, so it never settles into a rhythm a
+// listener could consciously track. Meant to be felt more than heard.
+let ambientTimer: number | null = null;
+
+function scheduleNextAmbientTick() {
+  if (typeof window === "undefined") return;
+  // Irregular spacing, roughly 3-7.5s apart — organic, not metronomic.
+  const gap = 3000 + Math.random() * 4500;
+  ambientTimer = window.setTimeout(() => {
+    if (!isSoundEnabled()) {
+      ambientTimer = null;
+      return;
+    }
+    const audioCtx = getContext();
+    if (audioCtx) {
+      // A faint synaptic click: a very short, quiet blip with a touch of
+      // random pitch and an even fainter shimmer trailing it.
+      const freq = 320 + Math.random() * 560;
+      tone(audioCtx, freq, 0, 0.05 + Math.random() * 0.03, 0.006, "sine");
+      if (Math.random() > 0.5) {
+        tone(audioCtx, freq * 2.1, 0.03, 0.08, 0.0025, "sine");
+      }
+    }
+    scheduleNextAmbientTick();
+  }, gap);
+}
+
+function ensureAmbientStarted() {
+  if (ambientTimer !== null) return;
+  scheduleNextAmbientTick();
+}
+
+function stopAmbient() {
+  if (typeof window !== "undefined" && ambientTimer !== null) {
+    window.clearTimeout(ambientTimer);
+  }
+  ambientTimer = null;
 }

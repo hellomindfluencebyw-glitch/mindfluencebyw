@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import { Color, Vector3, CanvasTexture } from "three";
 
 // ---- Mindfluence design tokens (electric teal / near-black) ----
 // See /docs/design-tokens.md for the full rationale.
@@ -10,9 +10,9 @@ export const TOKENS = {
   ink: "#F4F8F7",
 } as const;
 
-export const COLOR_TEAL = new THREE.Color(TOKENS.teal);
-export const COLOR_TEAL_DIM = new THREE.Color(TOKENS.tealDim);
-export const COLOR_TEAL_HOT = new THREE.Color(TOKENS.tealHot);
+export const COLOR_TEAL = new Color(TOKENS.teal);
+export const COLOR_TEAL_DIM = new Color(TOKENS.tealDim);
+export const COLOR_TEAL_HOT = new Color(TOKENS.tealHot);
 
 export type Edge = { key: string; a: number; b: number };
 
@@ -38,7 +38,7 @@ export const REGION_ANCHORS: Record<
  * Deliberately abstract, not anatomical: two offset ellipsoid
  * lobes with a longitudinal gap, per the creative brief.
  */
-export function sampleBrainPoint(): THREE.Vector3 {
+export function sampleBrainPoint(): Vector3 {
   const rx = 1.55,
     ry = 1.05,
     rz = 1.15;
@@ -57,11 +57,11 @@ export function sampleBrainPoint(): THREE.Vector3 {
   y = y * ry - Math.abs(z) * 0.12;
   z = z * rz;
   if (y < -0.55) y = -0.55 - Math.random() * 0.15;
-  return new THREE.Vector3(x, y, z);
+  return new Vector3(x, y, z);
 }
 
 export function generateBrain(count: number) {
-  const points: THREE.Vector3[] = [];
+  const points: Vector3[] = [];
   for (let i = 0; i < count; i++) points.push(sampleBrainPoint());
 
   const edges: Edge[] = [];
@@ -112,7 +112,7 @@ export function generateBrain(count: number) {
 }
 
 /** Soft radial-gradient sprite used for every glowing particle in the site. */
-export function makeDotTexture(): THREE.CanvasTexture {
+export function makeDotTexture(): CanvasTexture {
   const size = 128;
   const canvas = document.createElement("canvas");
   canvas.width = size;
@@ -124,7 +124,7 @@ export function makeDotTexture(): THREE.CanvasTexture {
   g.addColorStop(1, "rgba(180,255,245,0)");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, size, size);
-  const tex = new THREE.CanvasTexture(canvas);
+  const tex = new CanvasTexture(canvas);
   tex.needsUpdate = true;
   return tex;
 }
