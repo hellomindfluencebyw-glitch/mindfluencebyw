@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Section from "./Section";
 import { GALLERY_ITEMS, GalleryItem } from "@/lib/gallery";
 import { assetPath } from "@/lib/assetPath";
-import { triggerPathBurst } from "@/components/PathBurst";
+import { triggerPathBurst, triggerOpenMemory } from "@/components/PathBurst";
 import { playSound } from "@/lib/sound";
 
 // Golden-angle phyllotaxis scatter — an organic, non-grid distribution that
@@ -49,7 +49,7 @@ export default function OccipitalLobe() {
               <motion.button
                 key={item.id}
                 className="gallery-item"
-                style={{ left: `${pos.x}%`, top: `${pos.y + 50}%` }}
+                style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
                 initial={{ opacity: 0, scale: 0.7 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -98,12 +98,16 @@ export default function OccipitalLobe() {
                 <button
                   className="gallery-lightbox-link"
                   onClick={() => {
+                    const projectId = openItem.projectId;
                     setOpenItem(null);
+                    document
+                      .getElementById("hippocampus")
+                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    // Give the scroll a moment to actually get there before
+                    // the specific memory opens on top of it.
                     window.setTimeout(() => {
-                      document
-                        .getElementById("hippocampus")
-                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }, 200);
+                      if (projectId) triggerOpenMemory(projectId);
+                    }, 550);
                   }}
                 >
                   See the full case study →
