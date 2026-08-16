@@ -4,11 +4,18 @@ import { useCallback, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ThoughtCycle from "./ThoughtCycle";
+import HeroLoadingPlaceholder from "./HeroLoadingPlaceholder";
 import { triggerPathBurst } from "@/components/PathBurst";
 import { playSound } from "@/lib/sound";
 
-// BrainScene touches window/canvas — load client-side only.
-const BrainScene = dynamic(() => import("./BrainScene"), { ssr: false });
+// BrainScene touches window/canvas — load client-side only. The chunk is
+// unavoidably large (three.js's renderer + shader system, needed by
+// @react-three/fiber regardless of scene complexity), so show an instant,
+// lightweight neural presence while it loads rather than a blank hero.
+const BrainScene = dynamic(() => import("./BrainScene"), {
+  ssr: false,
+  loading: () => <HeroLoadingPlaceholder />,
+});
 
 type ZoomState = "idle" | "entering" | "inside";
 
@@ -47,6 +54,7 @@ export default function Hero() {
   function handleNavigate(id: string) {
     setZoomState("idle");
     triggerPathBurst(0.5, 0.5);
+    playSound("navClick");
     window.setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 250);

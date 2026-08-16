@@ -1,7 +1,16 @@
 "use client";
 
-import { useMemo, useRef } from "react";
-import * as THREE from "three";
+import { useMemo, useRef, useState } from "react";
+import {
+  Vector3,
+  Plane,
+  BufferGeometry,
+  BufferAttribute,
+  AdditiveBlending,
+  Group,
+  Mesh,
+  MeshBasicMaterial,
+} from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import {
@@ -60,30 +69,30 @@ function Brain({
     []
   );
 
-  const groupRef = useRef<THREE.Group>(null!);
+  const groupRef = useRef<Group>(null!);
   const hasInteracted = useRef(false);
 
   const { camera, raycaster, pointer } = useThree();
-  const targetPlane = useMemo(() => new THREE.Plane(new THREE.Vector3(0, 0, 1), 0), []);
-  const mouseWorld = useMemo(() => new THREE.Vector3(), []);
-  const tmpA = useMemo(() => new THREE.Vector3(), []);
-  const tmpB = useMemo(() => new THREE.Vector3(), []);
+  const targetPlane = useMemo(() => new Plane(new Vector3(0, 0, 1), 0), []);
+  const mouseWorld = useMemo(() => new Vector3(), []);
+  const tmpA = useMemo(() => new Vector3(), []);
+  const tmpB = useMemo(() => new Vector3(), []);
 
   const pointsGeo = useMemo(() => {
-    const geo = new THREE.BufferGeometry();
+    const geo = new BufferGeometry();
     const positions = new Float32Array(NEURON_COUNT * 3);
     const colors = new Float32Array(NEURON_COUNT * 3);
     points.forEach((p, i) => {
       positions.set([p.x, p.y, p.z], i * 3);
       COLOR_TEAL_DIM.toArray(colors, i * 3);
     });
-    geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+    geo.setAttribute("position", new BufferAttribute(positions, 3));
+    geo.setAttribute("color", new BufferAttribute(colors, 3));
     return geo;
   }, [points]);
 
   function buildLineGeo(edgeList: typeof edges) {
-    const geo = new THREE.BufferGeometry();
+    const geo = new BufferGeometry();
     const positions = new Float32Array(edgeList.length * 6);
     const colors = new Float32Array(edgeList.length * 6);
     edgeList.forEach((e, idx) => {
@@ -92,8 +101,8 @@ function Brain({
       positions.set([pa.x, pa.y, pa.z, pb.x, pb.y, pb.z], idx * 6);
       colors.set([...COLOR_TEAL_DIM.toArray(), ...COLOR_TEAL_DIM.toArray()], idx * 6);
     });
-    geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+    geo.setAttribute("position", new BufferAttribute(positions, 3));
+    geo.setAttribute("color", new BufferAttribute(colors, 3));
     return geo;
   }
 
@@ -109,7 +118,7 @@ function Brain({
       })),
     [edges, prefersReduced]
   );
-  const pulseMeshRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const pulseMeshRefs = useRef<(Mesh | null)[]>([]);
   const highlightRef = useRef<Float32Array>(new Float32Array(NEURON_COUNT));
 
   useFrame((state, delta) => {
@@ -120,8 +129,12 @@ function Brain({
     const rotSpeed = (prefersReduced ? 0.03 : 0.09) * (entering ? 2.4 : 1);
     group.rotation.y += rotSpeed * delta;
 
-    // subtle breathing
-    const breathe = prefersReduced ? 1 : 1 + Math.sin(t * 0.6) * 0.018;
+    // Subtle breathing — two slightly-detuned sine waves combined so the
+    // rhythm drifts in and out of phase over time instead of repeating on
+    // a fixed metronomic beat, reading as organic rather than mechanical.
+    const breathe = prefersReduced
+      ? 1
+      : 1 + (Math.sin(t * 0.6) * 0.6 + Math.sin(t * 0.233 + 1.7) * 0.4) * 0.024;
     group.scale.setScalar(breathe);
 
     if (!prefersReduced) {
@@ -137,8 +150,8 @@ function Brain({
     raycaster.setFromCamera(pointer, camera);
     raycaster.ray.intersectPlane(targetPlane, mouseWorld);
 
-    const posAttr = pointsGeo.attributes.position as THREE.BufferAttribute;
-    const colAttr = pointsGeo.attributes.color as THREE.BufferAttribute;
+    const posAttr = pointsGeo.attributes.position as BufferAttribute;
+    const colAttr = pointsGeo.attributes.color as BufferAttribute;
     const highlight = highlightRef.current;
 
     const pulseAge = pulseTarget ? (Date.now() - pulseTarget.ts) / 1000 : Infinity;
@@ -175,7 +188,7 @@ function Brain({
     }
     colAttr.needsUpdate = true;
 
-    const lc = lineGeo.attributes.color as THREE.BufferAttribute;
+    const lc = lineGeo.attributes.color as BufferAttribute;
     edges.forEach((e, idx) => {
       const hAvg = (highlight[e.a] + highlight[e.b]) / 2;
       const c = COLOR_TEAL_DIM.clone().lerp(COLOR_TEAL, Math.min(1, hAvg * 1.6 + 0.15));
@@ -185,7 +198,7 @@ function Brain({
     lc.needsUpdate = true;
 
     // latent connections only appear when BOTH endpoints are actively highlighted
-    const llc = latentGeo.attributes.color as THREE.BufferAttribute;
+    const llc = latentGeo.attributes.color as BufferAttribute;
     latentEdges.forEach((e, idx) => {
       const strength = highlight[e.a] * highlight[e.b];
       const c = COLOR_TEAL_DIM.clone().lerp(COLOR_TEAL_HOT, Math.min(1, strength * 3));
@@ -205,7 +218,7 @@ function Brain({
       tmpA.copy(points[p.edge.a]);
       tmpB.copy(points[p.edge.b]);
       mesh.position.copy(tmpA.lerp(tmpB, p.t));
-      (mesh.material as THREE.MeshBasicMaterial).opacity = 0.9 * Math.sin(Math.PI * p.t) + 0.1;
+      (mesh.material as MeshBasicMaterial).opacity = 0.9 * Math.sin(Math.PI * p.t) + 0.1;
     });
 
     const targetZ = zoomed ? 2.15 : 5.2;
@@ -221,7 +234,7 @@ function Brain({
           vertexColors
           transparent
           depthWrite={false}
-          blending={THREE.AdditiveBlending}
+          blending={AdditiveBlending}
           sizeAttenuation
         />
       </points>
@@ -230,7 +243,7 @@ function Brain({
           vertexColors
           transparent
           opacity={0.5}
-          blending={THREE.AdditiveBlending}
+          blending={AdditiveBlending}
           depthWrite={false}
         />
       </lineSegments>
@@ -239,7 +252,7 @@ function Brain({
           vertexColors
           transparent
           opacity={0.85}
-          blending={THREE.AdditiveBlending}
+          blending={AdditiveBlending}
           depthWrite={false}
         />
       </lineSegments>
@@ -254,7 +267,7 @@ function Brain({
           <meshBasicMaterial
             color={COLOR_TEAL_HOT}
             transparent
-            blending={THREE.AdditiveBlending}
+            blending={AdditiveBlending}
             depthWrite={false}
           />
         </mesh>
@@ -266,7 +279,7 @@ function Brain({
 
 function Dust() {
   const geo = useMemo(() => {
-    const g = new THREE.BufferGeometry();
+    const g = new BufferGeometry();
     const DUST = 250;
     const pos = new Float32Array(DUST * 3);
     for (let i = 0; i < DUST; i++) {
@@ -274,7 +287,7 @@ function Dust() {
       pos[i * 3 + 1] = (Math.random() - 0.5) * 14;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 14 - 3;
     }
-    g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    g.setAttribute("position", new BufferAttribute(pos, 3));
     return g;
   }, []);
   const texture = useMemo(() => makeDotTexture(), []);
@@ -287,7 +300,7 @@ function Dust() {
         opacity={0.5}
         map={texture}
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
+        blending={AdditiveBlending}
       />
     </points>
   );
@@ -306,9 +319,17 @@ export default function BrainScene({
   onNavigate: (id: string) => void;
   onFirstInteract: () => void;
 }) {
+  const [ready, setReady] = useState(false);
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5.2], fov: 50 }}
+    <div className={`brain-canvas-fade${ready ? " is-ready" : ""}`}>
+      <Canvas
+        camera={{ position: [0, 0, 5.2], fov: 50 }}
+        onCreated={() => {
+          // Defer one frame so the first real paint has actually happened
+          // before we cross-fade away the loading placeholder.
+          requestAnimationFrame(() => setReady(true));
+        }}
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
       style={{ position: "absolute", inset: 0 }}
@@ -323,5 +344,6 @@ export default function BrainScene({
       />
       <Dust />
     </Canvas>
+    </div>
   );
 }
