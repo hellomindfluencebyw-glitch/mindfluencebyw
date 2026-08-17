@@ -7,7 +7,7 @@ import FinalCTA from "./connect/FinalCTA";
 
 // Fill these in once you're ready to have them public, then the row below
 // will render automatically. Leave either one empty to hide just that link.
-const CONTACT_EMAIL: string = "wambuinganga1910@gmail.com";
+const CONTACT_EMAIL: string = "hellomindfluencebyw@gmail.com";
 const INSTAGRAM_HANDLE: string = "@mindfluencebyw";
 
 export default function Connect() {
