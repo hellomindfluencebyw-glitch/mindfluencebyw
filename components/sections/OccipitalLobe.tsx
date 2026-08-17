@@ -10,6 +10,9 @@ import { playSound } from "@/lib/sound";
 
 // Golden-angle phyllotaxis scatter — an organic, non-grid distribution that
 // looks intentional at any item count, not just the ones we happen to have.
+// Used for the desktop radial cluster only; on narrow portrait viewports
+// this same math would pack items too tightly to tell apart, so mobile
+// gets its own composition below instead of a scaled-down version of this.
 function clusterPosition(i: number, total: number) {
   const goldenAngle = 137.508 * (Math.PI / 180);
   const angle = i * goldenAngle;
@@ -42,27 +45,47 @@ export default function OccipitalLobe() {
       description="Instagram posts arranged in circular, neural-network clusters instead of a grid. Hover to enlarge, click to open the full case study."
     >
       {hasItems ? (
-        <div className="gallery-cluster">
-          {GALLERY_ITEMS.map((item, i) => {
-            const pos = clusterPosition(i, GALLERY_ITEMS.length);
-            return (
-              <motion.button
+        <>
+          {/* Desktop: organic radial cluster. Hidden below 768px via CSS. */}
+          <div className="gallery-cluster">
+            {GALLERY_ITEMS.map((item, i) => {
+              const pos = clusterPosition(i, GALLERY_ITEMS.length);
+              return (
+                <motion.button
+                  key={item.id}
+                  className="gallery-item"
+                  style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.03 }}
+                  whileHover={{ scale: 1.12 }}
+                  onClick={(e) => handleOpen(item, e.currentTarget)}
+                  aria-label={item.caption ?? "Open piece"}
+                >
+                  <img src={assetPath(item.src)} alt={item.caption ?? ""} />
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Mobile: a swipeable filmstrip with staggered vertical offsets —
+              same organic, non-grid feeling, reliable on narrow portrait
+              screens where the radial math would pack items too tightly.
+              Hidden at 768px and above via CSS. */}
+          <div className="gallery-filmstrip">
+            {GALLERY_ITEMS.map((item, i) => (
+              <button
                 key={item.id}
-                className="gallery-item"
-                style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-                initial={{ opacity: 0, scale: 0.7 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.03 }}
-                whileHover={{ scale: 1.12 }}
+                className={`gallery-filmstrip-item${i % 2 === 1 ? " is-offset" : ""}`}
                 onClick={(e) => handleOpen(item, e.currentTarget)}
                 aria-label={item.caption ?? "Open piece"}
               >
                 <img src={assetPath(item.src)} alt={item.caption ?? ""} />
-              </motion.button>
-            );
-          })}
-        </div>
+              </button>
+            ))}
+          </div>
+        </>
       ) : (
         <div className="gallery-placeholder">
           Gallery structure is ready. Real posts will appear here once added.
