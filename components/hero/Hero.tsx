@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ThoughtCycle from "./ThoughtCycle";
@@ -21,6 +21,27 @@ type ZoomState = "idle" | "entering" | "inside";
 
 export default function Hero() {
   const [zoomState, setZoomState] = useState<ZoomState>("idle");
+  const [staticBrain, setStaticBrain] = useState(false);
+
+  // Avoid initializing WebGL on reduced-motion and constrained devices.
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lowMemory = typeof (navigator as Navigator & { deviceMemory?: number }).deviceMemory === "number"
+      && (navigator as Navigator & { deviceMemory?: number }).deviceMemory! <= 2;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const smallScreen = window.matchMedia("(max-width: 640px)").matches;
+    let webglAvailable = false;
+    try {
+      const canvas = document.createElement("canvas");
+      webglAvailable = Boolean(
+        window.WebGLRenderingContext &&
+        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+      );
+    } catch {
+      webglAvailable = false;
+    }
+    setStaticBrain(reducedMotion || lowMemory || (coarsePointer && smallScreen) || !webglAvailable);
+  }, []);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [pulseTarget, setPulseTarget] = useState<{ x: number; y: number; ts: number } | null>(
     null
@@ -51,12 +72,22 @@ export default function Hero() {
     window.setTimeout(() => setZoomState("inside"), 450);
   }
 
-  function handleNavigate(id: string) {
+  function handleNavigate(regionId: string) {
+    // Brain-region labels are conceptual navigation, mapped to sections that
+    // actually exist in the current agency-led page architecture.
+    const destinations: Record<string, string> = {
+      "frontal-lobe": "services",
+      "brocas-area": "work",
+      "limbic-system": "behaviour-lab",
+      hippocampus: "work",
+      "occipital-lobe": "work",
+    };
+    const targetId = destinations[regionId] ?? "work";
     setZoomState("idle");
     triggerPathBurst(0.5, 0.5);
     playSound("navClick");
     window.setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 250);
   }
 
@@ -66,13 +97,20 @@ export default function Hero() {
   return (
     <section className="hero" id="hero" onClick={handleHeroClick}>
       <div className="canvas-wrap">
-        <BrainScene
-          zoomed={zoomed}
-          entering={entering}
-          pulseTarget={pulseTarget}
-          onNavigate={handleNavigate}
-          onFirstInteract={() => setHasInteracted(true)}
-        />
+        {staticBrain ? (
+          <div className="static-brain" aria-hidden="true">
+            <HeroLoadingPlaceholder />
+            <div className="static-brain-caption">STRATEGY STARTS WITH PEOPLE</div>
+          </div>
+        ) : (
+          <BrainScene
+            zoomed={zoomed}
+            entering={entering}
+            pulseTarget={pulseTarget}
+            onNavigate={handleNavigate}
+            onFirstInteract={() => setHasInteracted(true)}
+          />
+        )}
       </div>
       <div className="vignette" />
       <motion.div
@@ -108,16 +146,14 @@ export default function Hero() {
         transition={{ duration: 0.4 }}
         style={{ pointerEvents: zoomed ? "none" : "auto" }}
       >
-        <div className="eyebrow">MINDFLUENCE&nbsp;BY&nbsp;W</div>
-        <h1 className="headline">
-          We don&apos;t market to people.
-          <br />
-          We market to the <em>mind</em>.
-        </h1>
-        <button className="cta" onClick={handleExplore}>
-          Explore the Mind
-          <span className="cta-arrow">→</span>
-        </button>
+        <div className="eyebrow">MINDFLUENCE / BY W</div>
+        <h1 className="headline">SOCIAL MEDIA,<br /><em>UNDERSTOOD DIFFERENTLY.</em></h1>
+        <p className="hero-copy">We create social media strategy, content and creative systems built around how people actually think, feel, notice, remember and behave online.</p>
+        <div className="hero-positioning">PSYCHOLOGY-BACKED. CREATIVE-LED. STRATEGY-FIRST.</div>
+        <div className="hero-actions">
+          <a className="cta cta-primary" href="#work">Explore our work <span>→</span></a>
+          <a className="cta cta-secondary" href="#connect">Work with us <span>↗</span></a>
+        </div>
       </motion.div>
 
       <motion.div

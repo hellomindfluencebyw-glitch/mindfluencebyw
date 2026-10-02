@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Section from "./Section";
 import MemoryNode from "./hippocampus/MemoryNode";
@@ -40,6 +40,21 @@ export default function Hippocampus() {
     );
     playSound("memoryActivate");
   }
+
+  // Lets the Creative Gallery lightbox open a specific case study (via its
+  // projectId), not just scroll to this section generically.
+  useEffect(() => {
+    function onOpenMemory(e: Event) {
+      const { projectId } = (e as CustomEvent).detail as { projectId: string };
+      if (!MEMORY_PROJECTS.some((p) => p.id === projectId)) return;
+      setModalId(projectId);
+      setActiveId(projectId);
+      triggerPathBurst(0.5, 0.5);
+      playSound("memoryActivate");
+    }
+    window.addEventListener("mindfluence:open-memory", onOpenMemory);
+    return () => window.removeEventListener("mindfluence:open-memory", onOpenMemory);
+  }, []);
 
   function handleClose() {
     setModalId(null);
