@@ -226,8 +226,14 @@ function Brain({
     camera.position.z += (targetZ - camera.position.z) * Math.min(1, delta * 2.4);
   });
 
-  return (
-    <group ref={groupRef}>
+ return (
+    <group
+      ref={groupRef}
+      onClick={(event) => {
+        event.stopPropagation();
+        onExplore();
+      }}
+    >
       <points geometry={pointsGeo}>
         <pointsMaterial
           size={0.1}
