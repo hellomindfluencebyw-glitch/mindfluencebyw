@@ -2590,3 +2590,20 @@ html[data-theme="light"] .global-nav nav a { color: rgba(17,21,20,.72); }
   position: relative;
   z-index: 5;
 }
+/* Brain-first hero composition */
+.hero-brain-first {
+  height: 52%;
+  top: 0;
+  bottom: auto;
+}
+
+.hero-brain-first .canvas-wrap {
+  height: 100%;
+}
+
+.hero-content {
+  top: 52%;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
