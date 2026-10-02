@@ -230,12 +230,13 @@ function Brain({
   });
 
  return (
-    <group
-      ref={groupRef}
-      onClick={(event) => {
-        event.stopPropagation();
-        onExplore();
-      }}
+   <group
+  ref={groupRef}
+  scale={1.45}
+  onClick={(event) => {
+    event.stopPropagation();
+    onExplore();
+  }}
     >
       <points geometry={pointsGeo}>
         <pointsMaterial
