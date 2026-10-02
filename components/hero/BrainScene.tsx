@@ -342,6 +342,7 @@ export default function BrainScene({
         entering={entering}
         pulseTarget={pulseTarget}
         onNavigate={onNavigate}
+          onExplore={onExplore}
         onFirstInteract={onFirstInteract}
       />
       <Dust />
