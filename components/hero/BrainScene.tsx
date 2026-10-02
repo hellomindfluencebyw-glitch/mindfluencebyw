@@ -306,7 +306,7 @@ function Dust() {
   return (
     <points geometry={geo}>
       <pointsMaterial
-        size={0.02}
+        size={0.13}
         color="#2a5c58"
         transparent
         opacity={0.5}
