@@ -96,7 +96,8 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" onClick={handleHeroClick}>
-      <div className="canvas-wrap">
+      <div className="hero-brain-area">
+        <div className="canvas-wrap">
         {staticBrain ? (
           <div className="static-brain" aria-hidden="true">
             <HeroLoadingPlaceholder />
@@ -112,8 +113,9 @@ export default function Hero() {
             onFirstInteract={() => setHasInteracted(true)}
           />
         )}
-      </div>
-      <div className="vignette" />
+           </div>
+    </div>
+    <div className="vignette" />
       <motion.div
         className="enter-darken"
         animate={{ opacity: zoomed ? 1 : 0 }}
