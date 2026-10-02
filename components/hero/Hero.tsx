@@ -108,6 +108,7 @@ export default function Hero() {
             entering={entering}
             pulseTarget={pulseTarget}
             onNavigate={handleNavigate}
+            onExplore={handleExplore}
             onFirstInteract={() => setHasInteracted(true)}
           />
         )}
