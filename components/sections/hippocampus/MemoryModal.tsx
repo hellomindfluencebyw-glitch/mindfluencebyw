@@ -73,17 +73,17 @@ export default function MemoryModal({
 
               <ClickMotive key={project.id} project={project} />
 
-              <CircularCarousel slideCount={project.slideCount} assetDir={project.assetDir} />
+              <CircularCarousel slideCount={project.slideCount} assetDir={project.assetDir} assetExt={project.assetExt} />
 
               <WhyItWorked project={project} />
 
               <div className="memory-modal-fields">
-                {FIELDS.map((f) => (
+                {FIELDS.filter((f) => project[f.key]).map((f) => (
                   <div key={f.key} className="memory-modal-field">
                     <div className="memory-modal-field-label">{f.label}</div>
                     <div className="memory-modal-field-prompt">{f.prompt}</div>
                     <div className="memory-modal-field-body">
-                      {project[f.key] ?? "— pending, add copy —"}
+                      {project[f.key]}
                     </div>
                   </div>
                 ))}

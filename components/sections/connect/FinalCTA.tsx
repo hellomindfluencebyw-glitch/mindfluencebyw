@@ -13,7 +13,7 @@ export default function FinalCTA({ onStart }: { onStart: () => void }) {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        Your audience is already thinking.
+        What&apos;s your brand
       </motion.p>
 
       <motion.p
@@ -23,7 +23,7 @@ export default function FinalCTA({ onStart }: { onStart: () => void }) {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 1.3 }}
       >
-        Let&apos;s understand what they&apos;re thinking about.
+        making people feel?
       </motion.p>
 
       <div className="final-cta-neuron">
@@ -73,7 +73,7 @@ export default function FinalCTA({ onStart }: { onStart: () => void }) {
           onStart();
         }}
       >
-        Start a Conversation →
+        Work with Mindfluence →
       </motion.button>
     </div>
   );

@@ -4,9 +4,9 @@ export default function WhoWeAre() {
   return (
     <Section
       id="who-we-are"
-      eyebrow="WHO WE ARE"
-      title="Great marketing begins in the mind"
-      description="People don't buy products. They respond to emotion, remember stories, build habits, and seek belonging. Mindfluence exists to understand how the human mind actually works, and to build marketing around that, not around guesswork."
+      eyebrow="THE DIFFERENCE"
+      title="People are not algorithms. They are people."
+      description="We study behaviour, then turn it into strategy and creative. Psychology is the lens behind the work — not a separate product — so brands can communicate more clearly with the people they actually want to reach."
     />
   );
 }

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import PathBurst from "@/components/PathBurst";
-import AmbientTrail from "@/components/AmbientTrail";
-import SoundToggle from "@/components/SoundToggle";
 import "./globals.css";
 
 // next/font self-hosts these at build time: no render-blocking Google Fonts
@@ -28,22 +26,21 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mindfluence by W — Great marketing begins in the mind.",
+  title: "Mindfluence by W — Social media, understood differently.",
   description:
-    "A psychology-backed creative marketing studio. Explore the mind behind the work.",
+    "A psychology-backed social media creative agency. Strategy, content and creative systems built around real human behaviour.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: `(() => { try { const saved = localStorage.getItem("mindfluence-theme"); const system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"; document.documentElement.dataset.theme = saved || system; } catch (_) { document.documentElement.dataset.theme = "dark"; } })();` }} />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <AmbientTrail />
         {children}
         <PathBurst />
-        <SoundToggle />
       </body>
     </html>
   );

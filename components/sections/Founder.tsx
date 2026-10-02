@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Section from "./Section";
 import { assetPath } from "@/lib/assetPath";
 
-const CREDENTIALS = ["BA, Psychology (Consumer Behaviour focus)", "Nairobi, Kenya", "3+ Years in Market"];
+const CREDENTIALS = ["BA PSYCHOLOGY", "3+ YEARS IN MARKET", "CONTENT MARKETING", "SEO", "SOCIAL MEDIA MARKETING"];
 
 // Two small clusters, Psychology and Marketing, each with their own
 // internal connections, positioned apart. On scroll they draw lines
@@ -128,23 +128,15 @@ function BridgeVisual() {
 
 export default function Founder() {
   return (
-    <Section id="founder" eyebrow="THE FOUNDER" title="I was fascinated by two worlds.">
+    <Section id="founder" eyebrow="THE PERSON BEHIND THE MIND" title="Wambui Ng&apos;ang&apos;a">
       <div className="founder-grid">
         <div className="founder-portrait">
           <img src={assetPath("/founder/wambui.jpg")} alt="Wambui Ng'ang'a, founder of Mindfluence by W" />
         </div>
 
         <div className="founder-bio-col">
-          <p className="founder-bio">
-            Wambui Ng&apos;ang&apos;a started noticing patterns in how people responded to
-            campaigns: why some messages stayed in people&apos;s minds, why certain campaigns
-            created emotion, why some brands were remembered and others weren&apos;t.
-          </p>
-          <p className="founder-bio">
-            Psychology helped her understand people. Marketing gave her a way to communicate
-            with them. She realized these weren&apos;t two separate worlds. Mindfluence by W was
-            born where those two worlds meet.
-          </p>
+          <p className="founder-bio">Wambui Ng&apos;ang&apos;a is the founder and social media strategist behind Mindfluence by W, bringing together psychology, social media strategy, consumer behaviour and creative direction.</p>
+          <p className="founder-bio">Psychology informs how Mindfluence approaches social media; the work remains practical, creative and commercially focused.</p>
 
           <div className="founder-credentials">
             {CREDENTIALS.map((c) => (

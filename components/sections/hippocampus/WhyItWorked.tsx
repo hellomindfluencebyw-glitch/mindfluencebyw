@@ -7,6 +7,7 @@ import { PRINCIPLES } from "@/lib/psychology";
 
 export default function WhyItWorked({ project }: { project: MemoryProject }) {
   const [open, setOpen] = useState(false);
+  if (!project.principle) return null;
   const principle = project.principle ? PRINCIPLES.find((p) => p.id === project.principle) : null;
   const secondary = (project.secondaryPrinciples ?? [])
     .map((id) => PRINCIPLES.find((p) => p.id === id))
@@ -50,7 +51,7 @@ export default function WhyItWorked({ project }: { project: MemoryProject }) {
                 />
                 <p className="why-it-worked-definition">{principle.definition}</p>
                 <p className="why-it-worked-applied">
-                  {project.howItAppeared ?? "— pending: how this appeared in the creative —"}
+                  {project.howItAppeared}
                 </p>
               </motion.div>
             )}

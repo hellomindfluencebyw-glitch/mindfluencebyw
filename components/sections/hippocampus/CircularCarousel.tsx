@@ -6,9 +6,11 @@ import { assetPath } from "@/lib/assetPath";
 export default function CircularCarousel({
   slideCount,
   assetDir,
+  assetExt = "jpg",
 }: {
   slideCount: number;
   assetDir: string;
+  assetExt?: string;
 }) {
   const [active, setActive] = useState(0);
   const [missing, setMissing] = useState<Record<number, boolean>>({});
@@ -41,7 +43,7 @@ export default function CircularCarousel({
           const offset = i - active;
           const abs = Math.abs(offset);
           const isActive = offset === 0;
-          const src = assetPath(`${assetDir}${String(i + 1).padStart(2, "0")}.jpg`);
+          const src = assetPath(`${assetDir}${String(i + 1).padStart(2, "0")}.${assetExt}`);
           return (
             <button
               key={i}
