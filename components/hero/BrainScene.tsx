@@ -311,12 +311,14 @@ export default function BrainScene({
   entering,
   pulseTarget,
   onNavigate,
+  onExplore,
   onFirstInteract,
 }: {
   zoomed: boolean;
   entering: boolean;
   pulseTarget: { x: number; y: number; ts: number } | null;
-  onNavigate: (id: string) => void;
+   onNavigate: (id: string) => void;
+  onExplore: () => void;
   onFirstInteract: () => void;
 }) {
   const [ready, setReady] = useState(false);
