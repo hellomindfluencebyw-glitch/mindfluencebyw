@@ -4,6 +4,7 @@ export type MemoryProject = {
   tagline: string;
   assetDir: string;
   slideCount: number;
+  assetExt?: "jpg" | "jpeg" | "png" | "webp";
   status: "client work" | "independent audit" | "ongoing campaign" | "in-house";
   question?: string;
   insight?: string;
