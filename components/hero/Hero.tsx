@@ -96,7 +96,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" onClick={handleHeroClick}>
-      <div className="hero-brain-area">
+      <div className="hero-brain-area hero-brain-first">
         <div className="canvas-wrap">
         {staticBrain ? (
           <div className="static-brain" aria-hidden="true">
