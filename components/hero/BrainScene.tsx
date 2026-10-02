@@ -139,7 +139,7 @@ function Brain({
     const breathe = prefersReduced
       ? 1
       : 1 + (Math.sin(t * 0.6) * 0.6 + Math.sin(t * 0.233 + 1.7) * 0.4) * 0.024;
-    group.scale.setScalar(1.9 * breathe);
+group.scale.setScalar(1.65 * breathe);
 
     if (!prefersReduced) {
       const targetTiltX = -pointer.y * 0.18;
