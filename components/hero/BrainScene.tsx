@@ -254,7 +254,7 @@ group.scale.setScalar(1.65 * breathe);
         <lineBasicMaterial
           vertexColors
           transparent
-          opacity={0.5}
+          opacity={0.18}
           blending={AdditiveBlending}
           depthWrite={false}
         />
