@@ -34,7 +34,10 @@ function RegionLabels({ zoomed, onNavigate }: { zoomed: boolean; onNavigate: (id
           <button
             className={`region-html-label ${zoomed ? "is-visible" : ""}`}
             style={{ transitionDelay: zoomed ? `${300 + i * 110}ms` : "0ms" }}
-            onClick={() => onNavigate(id)}
+           onClick={(event) => {
+  event.stopPropagation();
+  onNavigate(id);
+}}
             tabIndex={zoomed ? 0 : -1}
           >
             <span className="region-html-rule" />
