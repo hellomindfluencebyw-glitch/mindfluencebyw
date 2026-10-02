@@ -336,7 +336,7 @@ export default function BrainScene({
   return (
     <div className={`brain-canvas-fade${ready ? " is-ready" : ""}`}>
       <Canvas
-        camera={{ position: [0, 0, 5.2], fov: 50 }}
+        camera={{ position: [0, 0, 5.2], fov: 42 }}
         onCreated={() => {
           // Defer one frame so the first real paint has actually happened
           // before we cross-fade away the loading placeholder.
