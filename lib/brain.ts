@@ -39,24 +39,54 @@ export const REGION_ANCHORS: Record<
  * lobes with a longitudinal gap, per the creative brief.
  */
 export function sampleBrainPoint(): Vector3 {
-  const rx = 1.55,
-    ry = 1.05,
-    rz = 1.15;
-  let x = 0,
-    y = 0,
-    z = 0;
-  for (let tries = 0; tries < 40; tries++) {
+  const rx = 1.55;
+  const ry = 1.05;
+  const rz = 1.15;
+
+  let x = 0;
+  let y = 0;
+  let z = 0;
+
+  for (let tries = 0; tries < 80; tries++) {
     x = Math.random() * 2 - 1;
     y = Math.random() * 2 - 1;
     z = Math.random() * 2 - 1;
+
     if (x * x + y * y + z * z <= 1) break;
   }
-  const sign = x >= 0 ? 1 : -1;
-  const gap = 0.16;
-  x = sign * (Math.abs(x) * rx + gap);
-  y = y * ry - Math.abs(z) * 0.12;
-  z = z * rz;
-  if (y < -0.55) y = -0.55 - Math.random() * 0.15;
+
+  const hemisphere = x >= 0 ? 1 : -1;
+  const ax = Math.abs(x);
+
+  // Two rounded hemispheres with a deeper central separation.
+  x = hemisphere * (ax * rx + 0.18);
+
+  // Slightly fuller upper cortex and narrower lower brain.
+  const upper = Math.max(0, y);
+  const lower = Math.max(0, -y);
+
+  y =
+    y * ry +
+    upper * 0.16 -
+    lower * 0.18 -
+    Math.abs(z) * 0.08;
+
+  // Give the rear/lower region a more organic taper.
+  const rear = Math.max(0, -z);
+  z = z * rz + rear * 0.08;
+
+  // Gentle irregularity so the silhouette isn't a perfect mathematical oval.
+  const wobble =
+    Math.sin(y * 5.2 + z * 2.1) * 0.045 +
+    Math.sin(z * 7.1 - y * 2.7) * 0.035;
+
+  x += hemisphere * wobble;
+
+  // Slightly flatten the underside.
+  if (y < -0.55) {
+    y = -0.55 - Math.random() * 0.12;
+  }
+
   return new Vector3(x, y, z);
 }
 
