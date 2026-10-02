@@ -46,18 +46,19 @@ function RegionLabels({ zoomed, onNavigate }: { zoomed: boolean; onNavigate: (id
     </>
   );
 }
-
 function Brain({
   zoomed,
   entering,
   pulseTarget,
   onNavigate,
+  onExplore,
   onFirstInteract,
 }: {
   zoomed: boolean;
   entering: boolean;
   pulseTarget: { x: number; y: number; ts: number } | null;
-  onNavigate: (id: string) => void;
+   onNavigate: (id: string) => void;
+  onExplore: () => void;
   onFirstInteract: () => void;
 }) {
   const { points, edges, latentEdges } = useMemo(() => generateBrain(NEURON_COUNT), []);
