@@ -233,6 +233,7 @@ group.scale.setScalar(1.65 * breathe);
    <group
   ref={groupRef}
   scale={1.45}
+  position={[0, -0.35, 0]}
   onClick={(event) => {
     event.stopPropagation();
     onExplore();
