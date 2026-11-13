@@ -5,6 +5,7 @@ export type MemoryProject = {
   assetDir: string;
   slideCount: number;
   assetExt?: "jpg" | "jpeg" | "png" | "webp";
+  videos?: string[];
   status: "client work" | "independent audit" | "ongoing campaign" | "in-house" | "independent brand project";  question?: string;
   insight?: string;
   psychology?: string;
@@ -158,6 +159,10 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     tagline: "Social media strategy, campaign planning and creative content for a luxury lighting and décor brand",
     assetDir: "/work/delightful-decor/",
     slideCount: 3,
+    videos: [
+  "/videos/VID_20261111_074411_798.mp4",
+  "/videos/VID_20261111_074429_220.mp4",
+],
     assetExt: "webp",
     status: "client work",
     question:
