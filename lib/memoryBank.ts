@@ -5,8 +5,7 @@ export type MemoryProject = {
   assetDir: string;
   slideCount: number;
   assetExt?: "jpg" | "jpeg" | "png" | "webp";
-  status: "client work" | "independent audit" | "ongoing campaign" | "in-house";
-  question?: string;
+  status: "client work" | "independent audit" | "ongoing campaign" | "in-house" | "independent brand project";  question?: string;
   insight?: string;
   psychology?: string;
   creative?: string;
@@ -132,4 +131,25 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
       "Most social media managers use best practices. Mindfluence by W uses named behavioral frameworks applied deliberately to each content decision, the difference between posting consistently and posting with a psychological objective.",
     memory: "This portfolio is itself a deliverable.",
   },
+  
+  {
+    id: "basket-by-mama",
+    title: "Basket by Mama",
+    tagline: "A mother-led food brand built around trust, quality and convenience",
+    assetDir: "/work/basket-by-mama/",
+    slideCount: 1,
+    assetExt: "webp",
+    status: "independent brand project",
+    question:
+      "How do you turn a small, trust-based food business into a recognisable brand that attracts new customers through social media?",
+    insight:
+      "Customers are not simply buying cereals. They are buying convenience and the reassurance that someone has already taken the time to select, clean and sort their food.",
+    psychology:
+      "Trust Signalling and Convenience Psychology: make the care behind the product visible while reducing the effort customers associate with buying and preparing cereals.",
+    creative:
+      "Developed the brand identity and social media creative around a warm, mother-led personality. Product communication highlights the selection and cleaning process, the available cereal range, convenience and the personal care behind each order.",
+    memory:
+      "For everyday products, trust can be the strongest part of the brand experience."
+  },
+
 ];
