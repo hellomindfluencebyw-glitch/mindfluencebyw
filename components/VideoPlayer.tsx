@@ -1,5 +1,4 @@
-export default function VideoPlayer({
-  src,
+import { assetPath } from "@/lib/assetPath";
   title,
 }: {
   src: string;
@@ -19,7 +18,7 @@ export default function VideoPlayer({
           background: "#000",
         }}
       >
-        <source src={src} type="video/mp4" />
+        <source src={assetPath(src)} type="video/mp4" />
         Your browser does not support the video element.
       </video>
     </div>
