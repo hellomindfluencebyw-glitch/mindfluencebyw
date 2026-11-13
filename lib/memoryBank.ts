@@ -151,5 +151,26 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     memory:
       "For everyday products, trust can be the strongest part of the brand experience."
   },
+  
+  {
+    id: "delightful-decor",
+    title: "Delightful Decor",
+    tagline: "Social media strategy, campaign planning and creative content for a luxury lighting and décor brand",
+    assetDir: "/work/delightful-decor/",
+    slideCount: 3,
+    assetExt: "webp",
+    status: "client work",
+    question:
+      "How do you make lighting and décor products feel desirable through social media while giving customers a reason to enquire and purchase?",
+    insight:
+      "Lighting is not just a functional product. Customers need to imagine how it transforms the atmosphere and experience of their spaces.",
+    psychology:
+      "Aspirational Identity and Mental Simulation: help audiences picture the lifestyle and atmosphere associated with a product before making a purchase decision.",
+    creative:
+      "Developed social media strategy, campaign concepts and content creative, using styled interior settings, product storytelling and visual demonstrations to communicate the value of the lighting and décor range.",
+    memory:
+      "Don't just show people what a product looks like. Help them imagine what it could make possible."
+  },
+
 
 ];
