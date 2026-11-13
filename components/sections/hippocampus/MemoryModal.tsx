@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MemoryProject } from "@/lib/memoryBank";
 import CircularCarousel from "./CircularCarousel";
-import VideoPlayer from "../VideoPlayer";
+import VideoPlayer from "../../../VideoPlayer";
 import WhyItWorked from "./WhyItWorked";
 import ClickMotive from "./ClickMotive";
 import { playSound } from "@/lib/sound";
