@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MemoryProject } from "@/lib/memoryBank";
 import CircularCarousel from "./CircularCarousel";
+import VideoPlayer from "../VideoPlayer";
 import WhyItWorked from "./WhyItWorked";
 import ClickMotive from "./ClickMotive";
 import { playSound } from "@/lib/sound";
@@ -74,6 +75,21 @@ export default function MemoryModal({
               <ClickMotive key={project.id} project={project} />
 
               <CircularCarousel slideCount={project.slideCount} assetDir={project.assetDir} assetExt={project.assetExt} />
+
+              {project.videos && project.videos.length > 0 && (
+  <div className="memory-modal-videos">
+    <div className="memory-modal-field-label">CAMPAIGN FILMS</div>
+    <div className="memory-modal-video-grid">
+      {project.videos.map((video, index) => (
+        <VideoPlayer
+          key={video}
+          src={video}
+          title={`${project.title} video ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+)}
 
               <WhyItWorked project={project} />
 
