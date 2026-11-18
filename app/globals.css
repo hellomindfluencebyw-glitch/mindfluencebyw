@@ -2992,3 +2992,104 @@ html[data-theme="light"] .global-nav nav a { color: rgba(17,21,20,.72); }
     transition: none;
   }
 }
+
+
+/* ==========================================
+   MINDFLUENCE — DEEP NEURAL MEMORY
+   ========================================== */
+
+.memory-gallery-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Neural atmosphere behind the memories */
+.memory-gallery-shell::before {
+  content: "";
+  position: absolute;
+  inset: 4% 2%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.65;
+  background:
+    radial-gradient(circle at 12% 35%, rgba(63, 233, 214, 0.13) 0 2px, transparent 3px),
+    radial-gradient(circle at 29% 72%, rgba(63, 233, 214, 0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 51% 24%, rgba(63, 233, 214, 0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 73% 66%, rgba(63, 233, 214, 0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 91% 38%, rgba(63, 233, 214, 0.10) 0 2px, transparent 3px),
+    radial-gradient(ellipse at center, rgba(20, 105, 99, 0.10), transparent 68%);
+  filter: blur(1px);
+  animation: neural-atmosphere 8s ease-in-out infinite alternate;
+}
+
+/* Fine neural connections */
+.memory-gallery-shell .memory-gallery-track {
+  position: relative;
+}
+
+.memory-gallery-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* A quiet signal inside each memory */
+.memory-gallery-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(63, 233, 214, 0.09) 48%,
+    transparent 76%
+  );
+  transform: translateX(-110%);
+  transition: opacity 0.5s ease;
+}
+
+.memory-gallery-card:hover::before {
+  opacity: 1;
+  animation: memory-signal 1.4s ease forwards;
+}
+
+/* Soft neural glow on activation */
+.memory-gallery-card:hover {
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.14),
+    0 0 18px rgba(63, 233, 214, 0.10);
+}
+
+/* Breathing light in the gallery background */
+@keyframes neural-atmosphere {
+  from {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes memory-signal {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .memory-gallery-shell::before {
+    animation: none;
+  }
+
+  .memory-gallery-card::before {
+    animation: none;
+  }
+}
