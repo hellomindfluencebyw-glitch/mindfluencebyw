@@ -1,4 +1,7 @@
 import { assetPath } from "@/lib/assetPath";
+
+export default function VideoPlayer({
+  src,
   title,
 }: {
   src: string;
