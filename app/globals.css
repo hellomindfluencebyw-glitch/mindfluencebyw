@@ -2678,93 +2678,238 @@ html[data-theme="light"] .global-nav nav a { color: rgba(17,21,20,.72); }
 
 
 /* ==========================================
-   MINDFLUENCE — LIVING NEURAL MEMORY
+   MINDFLUENCE — MEMORY BANK RESTORATION
    ========================================== */
 
 .memory-gallery-shell {
   position: relative;
   isolation: isolate;
+  width: 100%;
   overflow: hidden;
+  margin: 52px 0 64px;
+  padding: 28px 0 34px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
 
-/* Bring the neural network back behind the memories */
+/* Neural atmosphere behind the memories */
 .memory-gallery-shell::before {
   content: "";
-  display: block !important;
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.85;
-
+  opacity: 0.3;
   background:
-    radial-gradient(circle at 10% 30%, #3fe9d6 0 2px, transparent 4px),
+    radial-gradient(circle at 10% 30%, #3fe9d6 0 2px, transparent 5px),
     radial-gradient(circle at 24% 70%, #3fe9d6 0 2px, transparent 5px),
     radial-gradient(circle at 40% 22%, #3fe9d6 0 2px, transparent 5px),
     radial-gradient(circle at 57% 76%, #3fe9d6 0 2px, transparent 5px),
     radial-gradient(circle at 74% 30%, #3fe9d6 0 2px, transparent 5px),
     radial-gradient(circle at 91% 68%, #3fe9d6 0 2px, transparent 5px),
-
-    linear-gradient(28deg, transparent 49.7%, rgba(63,233,214,.30) 50%, transparent 50.3%),
-    linear-gradient(151deg, transparent 49.7%, rgba(63,233,214,.25) 50%, transparent 50.3%),
-    linear-gradient(78deg, transparent 49.8%, rgba(63,233,214,.18) 50%, transparent 50.2%),
-
-    radial-gradient(ellipse at 50% 50%, rgba(63,233,214,.13), transparent 72%);
-
-  background-size:
-    100% 100%, 100% 100%, 100% 100%,
-    100% 100%, 100% 100%, 100% 100%,
-    100% 100%, 100% 100%, 100% 100%,
-    100% 100%;
-
-  animation: neural-network-breathe 7s ease-in-out infinite alternate;
+    linear-gradient(28deg, transparent 49.7%, rgba(63,233,214,.22) 50%, transparent 50.3%),
+    linear-gradient(151deg, transparent 49.7%, rgba(63,233,214,.18) 50%, transparent 50.3%),
+    radial-gradient(ellipse at center, rgba(63,233,214,.12), transparent 72%);
+  animation: neural-network-breathe 8s ease-in-out infinite alternate;
 }
 
-/* Keep the memories above the neural network */
+/* Horizontal continuous carousel */
 .memory-gallery-track {
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: stretch;
+  width: max-content;
+  gap: 28px;
+  animation: memory-drift 80s linear infinite;
+  will-change: transform;
 }
 
-/* A more noticeable activation when a memory is selected */
+.memory-gallery-shell:hover .memory-gallery-track {
+  animation-play-state: paused;
+}
+
+/* Individual memory cards */
 .memory-gallery-card {
   position: relative;
   isolation: isolate;
+  display: block;
+  flex: 0 0 330px;
+  width: 330px;
+  padding: 0;
+  border: 1px solid rgba(63, 233, 214, 0.2);
+  border-radius: 13px;
+  overflow: hidden;
+  text-align: left;
+  color: inherit;
+  background: rgba(128, 128, 128, 0.035);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  transition: transform .5s ease, border-color .5s ease, box-shadow .5s ease;
+}
+
+.memory-gallery-card:nth-child(4n + 2) {
+  margin-top: 12px;
+}
+
+.memory-gallery-card:nth-child(4n + 3) {
+  margin-top: -6px;
 }
 
 .memory-gallery-card:hover {
-  border-color: rgba(63, 233, 214, 0.8);
+  transform: translateY(-7px);
+  border-color: rgba(63, 233, 214, 0.7);
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.18),
-    0 0 22px rgba(63, 233, 214, 0.24),
-    0 0 48px rgba(63, 233, 214, 0.10);
+    0 18px 42px rgba(0, 0, 0, 0.18),
+    0 0 22px rgba(63, 233, 214, 0.18);
 }
 
-/* Travelling light signal */
+/* Image area */
+.memory-gallery-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #101718;
+}
+
+.memory-gallery-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+
+.memory-gallery-card:hover .memory-gallery-image img {
+  transform: scale(1.055);
+}
+
+/* Memory number */
+.memory-gallery-index {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 7px 10px;
+  border: 1px solid rgba(63, 233, 214, 0.35);
+  border-left: 2px solid #3fe9d6;
+  border-radius: 4px;
+  background: rgba(5, 8, 10, 0.82);
+  color: #aefff2;
+  font-size: 9px;
+  letter-spacing: .16em;
+  backdrop-filter: blur(10px);
+}
+
+/* Editorial captions */
+.memory-gallery-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 15px;
+  color: inherit;
+}
+
+.memory-gallery-caption span:first-child {
+  color: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .025em;
+}
+
+.memory-gallery-caption span:last-child {
+  color: #168f83;
+  font-size: 9px;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+/* Light sweep on hover */
 .memory-gallery-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   z-index: 3;
+  pointer-events: none;
+  opacity: 0;
   background: linear-gradient(
     115deg,
     transparent 15%,
-    rgba(63, 233, 214, 0.24) 48%,
+    rgba(63, 233, 214, 0.2) 48%,
     transparent 80%
   );
+  transform: translateX(-110%);
+}
+
+.memory-gallery-card:hover::before {
+  opacity: 1;
+  animation: memory-signal 1.4s ease forwards;
+}
+
+/* Seamless duplicated-track loop */
+@keyframes memory-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 14px)); }
+}
+
+@keyframes memory-signal {
+  from { transform: translateX(-110%); }
+  to { transform: translateX(110%); }
 }
 
 @keyframes neural-network-breathe {
-  0% {
-    opacity: 0.38;
-    filter: brightness(0.8);
+  from { opacity: .18; }
+  to { opacity: .42; }
+}
+
+/* Light theme */
+html[data-theme="light"] .memory-gallery-shell::before {
+  opacity: .2;
+}
+
+html[data-theme="light"] .memory-gallery-card {
+  background: rgba(255, 255, 255, .65);
+  border-color: rgba(13, 104, 98, .2);
+  box-shadow: 0 12px 34px rgba(20, 40, 36, .06);
+}
+
+html[data-theme="light"] .memory-gallery-caption span:last-child {
+  color: #0d6862;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .memory-gallery-shell {
+    margin: 34px 0 42px;
+    padding: 20px 0 26px;
   }
 
-  100% {
-    opacity: 0.9;
-    filter: brightness(1.35);
+  .memory-gallery-track {
+    gap: 20px;
+    animation-duration: 65s;
+  }
+
+  .memory-gallery-card {
+    flex-basis: 260px;
+    width: 260px;
+  }
+
+  @keyframes memory-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 10px)); }
   }
 }
 
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
+  .memory-gallery-track,
   .memory-gallery-shell::before {
     animation: none;
+  }
+
+  .memory-gallery-card,
+  .memory-gallery-image img {
+    transition: none;
   }
 }
