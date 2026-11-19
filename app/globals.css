@@ -3197,32 +3197,55 @@ html[data-theme="light"] .neural-depth path {
   isolation: isolate;
 }
 
+eyframes service-signal-travel rules with this:
+
 .service-neural-line {
   position: absolute;
   top: 0;
-  bottom: 0;
-  left: 34px;
-  width: 1px;
+  left: 0;
+  right: 0;
+  height: 1px;
   pointer-events: none;
   background: linear-gradient(
-    180deg,
+    90deg,
     transparent,
     rgba(63, 233, 214, 0.22) 12%,
     rgba(63, 233, 214, 0.22) 88%,
     transparent
   );
+  clip-path: inset(-18px 0);
+  z-index: 0;
+}
+
+eyframes service-signal-travel rules with this:
+
+.service-neural-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(63, 233, 214, 0.22) 12%,
+    rgba(63, 233, 214, 0.22) 88%,
+    transparent
+  );
+  clip-path: inset(-18px 0);
   z-index: 0;
 }
 
 .service-neural-pulse {
   position: absolute;
-  top: -72px;
-  left: -4px;
-  width: 9px;
-  height: 72px;
+  top: -4px;
+  left: 0;
+  width: 72px;
+  height: 9px;
   border-radius: 999px;
   background: linear-gradient(
-    180deg,
+    90deg,
     transparent 0%,
     rgba(63, 233, 214, 0.35) 35%,
     #3fe9d6 75%,
@@ -3253,7 +3276,7 @@ html[data-theme="light"] .neural-depth path {
 
 @keyframes service-signal-travel {
   0% {
-    top: -72px;
+    left: 0;
     opacity: 0;
   }
   8% {
@@ -3263,7 +3286,7 @@ html[data-theme="light"] .neural-depth path {
     opacity: 1;
   }
   100% {
-    top: calc(100% + 72px);
+    left: calc(100% - 72px);
     opacity: 0;
   }
 }
@@ -3271,7 +3294,7 @@ html[data-theme="light"] .neural-depth path {
 /* Light mode */
 html[data-theme="light"] .service-neural-pulse {
   background: linear-gradient(
-    180deg,
+    90deg,
     transparent 0%,
     rgba(13, 104, 98, 0.3) 30%,
     #0d6862 75%,
@@ -3307,7 +3330,7 @@ html[data-theme="light"] .service-row-new:hover h3 {
 
 .service-creative-orbit {
   position: absolute;
-  top: -48px;
+  top: -55px;
   right: 24px;
   width: 160px;
   height: 120px;
@@ -3317,7 +3340,7 @@ html[data-theme="light"] .service-row-new:hover h3 {
 
 @media (max-width: 600px) {
   .service-creative-orbit {
-   top: -85px;
+top: -105px;
 right: 24px;
 width: 160px;
 height: 120px;
