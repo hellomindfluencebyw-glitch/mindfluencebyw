@@ -11,15 +11,19 @@ const SERVICES = [
 export default function Services() {
   return (
     <Section id="services" eyebrow="WHAT WE DO" title="A social media creative agency, with a different starting point." description="Psychology is the strategic edge. The deliverable is still strategy, creative and social media work that moves a brand forward.">
-      <div className="service-list-new">
+  <div className="service-list-new">
+  <div className="service-neural-line" aria-hidden="true">
+    <span className="service-neural-pulse" />
+  </div>
         {SERVICES.map(([title, body], i) => (
           <article className="service-row-new" key={title}>
             <span className="service-row-index">0{i + 1}</span>
             <h3>{title}</h3>
             <p>{body}</p>
           </article>
-        ))}
+              ))}
       </div>
+    </div>
     </Section>
   );
 }
