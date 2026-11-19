@@ -3200,30 +3200,29 @@ html[data-theme="light"] .neural-depth path {
 .service-neural-line {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
+  bottom: 0;
+  left: 34px;
+  width: 1px;
   pointer-events: none;
-  overflow: hidden;
   background: linear-gradient(
-    90deg,
+    180deg,
     transparent,
-    rgba(63, 233, 214, 0.35) 12%,
-    rgba(63, 233, 214, 0.35) 88%,
+    rgba(63, 233, 214, 0.22) 12%,
+    rgba(63, 233, 214, 0.22) 88%,
     transparent
   );
-  z-index: 3;
+  z-index: 0;
 }
 
 .service-neural-pulse {
   position: absolute;
-  top: -4px;
-  left: 0;
-  width: 72px;
-  height: 9px;
+  top: -72px;
+  left: -4px;
+  width: 9px;
+  height: 72px;
   border-radius: 999px;
   background: linear-gradient(
-    90deg,
+    180deg,
     transparent 0%,
     rgba(63, 233, 214, 0.35) 35%,
     #3fe9d6 75%,
@@ -3254,7 +3253,7 @@ html[data-theme="light"] .neural-depth path {
 
 @keyframes service-signal-travel {
   0% {
-    left: 0;
+    top: -72px;
     opacity: 0;
   }
   8% {
@@ -3264,7 +3263,7 @@ html[data-theme="light"] .neural-depth path {
     opacity: 1;
   }
   100% {
-    left: calc(100% - 72px);
+    top: calc(100% + 72px);
     opacity: 0;
   }
 }
@@ -3272,7 +3271,7 @@ html[data-theme="light"] .neural-depth path {
 /* Light mode */
 html[data-theme="light"] .service-neural-pulse {
   background: linear-gradient(
-    90deg,
+    180deg,
     transparent 0%,
     rgba(13, 104, 98, 0.3) 30%,
     #0d6862 75%,
@@ -3284,7 +3283,7 @@ html[data-theme="light"] .service-neural-pulse {
     0 0 30px rgba(13, 104, 98, 0.3);
   filter: brightness(1.15);
 }
-  
+
 html[data-theme="light"] .service-row-new:hover h3 {
   color: #0d6862;
 }
