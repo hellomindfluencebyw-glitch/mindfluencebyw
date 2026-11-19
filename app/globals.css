@@ -3197,44 +3197,22 @@ html[data-theme="light"] .neural-depth path {
   isolation: isolate;
 }
 
-eyframes service-signal-travel rules with this:
-
 .service-neural-line {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   pointer-events: none;
+  overflow: hidden;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(63, 233, 214, 0.22) 12%,
-    rgba(63, 233, 214, 0.22) 88%,
+    rgba(63, 233, 214, 0.35) 12%,
+    rgba(63, 233, 214, 0.35) 88%,
     transparent
   );
-  clip-path: inset(-18px 0);
-  z-index: 0;
-}
-
-eyframes service-signal-travel rules with this:
-
-.service-neural-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(63, 233, 214, 0.22) 12%,
-    rgba(63, 233, 214, 0.22) 88%,
-    transparent
-  );
-  clip-path: inset(-18px 0);
-  z-index: 0;
+  z-index: 3;
 }
 
 .service-neural-pulse {
