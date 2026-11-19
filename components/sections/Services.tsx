@@ -16,6 +16,12 @@ export default function Services() {
     <span className="service-neural-pulse" />
   </div>
   
+  <div className="service-creative-orbit" aria-hidden="true">
+  <span className="creative-frame creative-frame-one" />
+  <span className="creative-frame creative-frame-two" />
+  <span className="creative-frame creative-frame-three" />
+</div>
+  
         {SERVICES.map(([title, body], i) => (
           <article className="service-row-new" key={title}>
             <span className="service-row-index">0{i + 1}</span>
