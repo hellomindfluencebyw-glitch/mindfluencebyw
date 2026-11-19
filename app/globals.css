@@ -3300,3 +3300,93 @@ html[data-theme="light"] .service-row-new:hover h3 {
     transition: none;
   }
 }
+
+/* ==========================================
+   MINDFLUENCE — CREATIVE IDEAS IN MOTION
+   ========================================== */
+
+.service-creative-orbit {
+  position: absolute;
+  top: -42px;
+  right: 18px;
+  width: 110px;
+  height: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.creative-frame {
+  position: absolute;
+  display: block;
+  width: 42px;
+  height: 58px;
+  border: 1px solid rgba(63, 233, 214, 0.65);
+  border-radius: 5px;
+  background:
+    linear-gradient(145deg, rgba(63, 233, 214, 0.12), transparent 65%),
+    rgba(5, 8, 10, 0.75);
+  box-shadow: 0 0 14px rgba(63, 233, 214, 0.12);
+}
+
+.creative-frame::before,
+.creative-frame::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  border-radius: 4px;
+  background: rgba(63, 233, 214, 0.75);
+}
+
+.creative-frame::before {
+  top: 12px;
+}
+
+.creative-frame::after {
+  top: 19px;
+  right: 14px;
+  opacity: 0.5;
+}
+
+.creative-frame-one {
+  top: 15px;
+  left: 8px;
+  transform: rotate(-14deg);
+  animation: creative-frame-drift-one 5s ease-in-out infinite;
+}
+
+.creative-frame-two {
+  top: 5px;
+  left: 38px;
+  transform: rotate(8deg);
+  animation: creative-frame-drift-two 6s ease-in-out infinite;
+}
+
+.creative-frame-three {
+  top: 22px;
+  left: 65px;
+  transform: rotate(17deg);
+  animation: creative-frame-drift-three 5.5s ease-in-out infinite;
+}
+
+@keyframes creative-frame-drift-one {
+  0%, 100% { transform: translateY(0) rotate(-14deg); }
+  50% { transform: translateY(-8px) rotate(-9deg); }
+}
+
+@keyframes creative-frame-drift-two {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  50% { transform: translateY(7px) rotate(14deg); }
+}
+
+@keyframes creative-frame-drift-three {
+  0%, 100% { transform: translateY(0) rotate(17deg); }
+  50% { transform: translateY(-6px) rotate(11deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creative-frame {
+    animation: none;
+  }
+}
