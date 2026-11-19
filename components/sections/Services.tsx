@@ -24,7 +24,6 @@ export default function Services() {
           </article>
               ))}
       </div>
-    </div>
     </Section>
   );
 }
