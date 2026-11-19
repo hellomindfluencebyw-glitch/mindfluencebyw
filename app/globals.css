@@ -3065,23 +3065,41 @@ html[data-theme="light"] .memory-gallery-caption span:last-child {
   filter: drop-shadow(0 0 10px #3fe9d6);
 }
 
-/* MEMORY ACTIVATION — neural response on hover */
+/* MEMORY ACTIVATION — HIGH INTENSITY RESPONSE */
 
 .memory-gallery-shell:has(.memory-gallery-card:hover) .neural-pathways path {
   opacity: 1;
-  stroke-width: 2.8;
-  filter: drop-shadow(0 0 10px rgba(63, 233, 214, 1));
-  animation-duration: 1.2s;
+  stroke: #3fe9d6;
+  stroke-width: 3.5;
+  filter:
+    drop-shadow(0 0 5px #3fe9d6)
+    drop-shadow(0 0 14px #3fe9d6)
+    drop-shadow(0 0 28px rgba(63, 233, 214, .9));
+  animation-duration: .6s;
 }
 
 .memory-gallery-shell:has(.memory-gallery-card:hover) .neural-nodes circle {
   opacity: 1;
-  filter: drop-shadow(0 0 15px #3fe9d6);
-  animation-duration: .8s;
+  fill: #ffffff;
+  stroke: #3fe9d6;
+  stroke-width: 2.5;
+  filter:
+    drop-shadow(0 0 8px #3fe9d6)
+    drop-shadow(0 0 22px #3fe9d6);
+  animation-duration: .45s;
 }
 
 .memory-gallery-shell:has(.memory-gallery-card:hover) .neural-pulses circle {
-  filter: drop-shadow(0 0 16px #3fe9d6);
+  r: 8;
+  fill: #ffffff;
+  stroke: #3fe9d6;
+  filter:
+    drop-shadow(0 0 10px #3fe9d6)
+    drop-shadow(0 0 25px #3fe9d6);
+}
+
+.memory-gallery-shell:has(.memory-gallery-card:hover) .neural-network {
+  filter: brightness(1.7) saturate(1.5);
 }
 @keyframes neural-path-glow {
   from { opacity: .3; }
