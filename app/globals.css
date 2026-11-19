@@ -3065,6 +3065,24 @@ html[data-theme="light"] .memory-gallery-caption span:last-child {
   filter: drop-shadow(0 0 10px #3fe9d6);
 }
 
+/* MEMORY ACTIVATION — neural response on hover */
+
+.memory-gallery-shell:has(.memory-gallery-card:hover) .neural-pathways path {
+  opacity: 1;
+  stroke-width: 2.8;
+  filter: drop-shadow(0 0 10px rgba(63, 233, 214, 1));
+  animation-duration: 1.2s;
+}
+
+.memory-gallery-shell:has(.memory-gallery-card:hover) .neural-nodes circle {
+  opacity: 1;
+  filter: drop-shadow(0 0 15px #3fe9d6);
+  animation-duration: .8s;
+}
+
+.memory-gallery-shell:has(.memory-gallery-card:hover) .neural-pulses circle {
+  filter: drop-shadow(0 0 16px #3fe9d6);
+}
 @keyframes neural-path-glow {
   from { opacity: .3; }
   to { opacity: 1; }
