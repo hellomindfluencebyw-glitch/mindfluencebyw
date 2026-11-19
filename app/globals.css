@@ -3004,3 +3004,97 @@ html[data-theme="light"] .memory-gallery-caption span:last-child {
     transition: none;
   }
 }
+
+
+/* ==========================================
+   MINDFLUENCE — ANIMATED SVG NEURAL NETWORK
+   ========================================== */
+
+.memory-gallery-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.neural-network {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.memory-gallery-track {
+  position: relative;
+  z-index: 1;
+}
+
+.neural-pathways path {
+  fill: none;
+  stroke: rgba(63, 233, 214, 0.65);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(63, 233, 214, 0.8));
+  animation: neural-path-glow 4s ease-in-out infinite alternate;
+}
+
+.neural-pathways path:nth-child(even) {
+  animation-delay: -2s;
+  stroke-width: 2.2;
+}
+
+.neural-nodes circle {
+  fill: #3fe9d6;
+  stroke: #aefff2;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 8px #3fe9d6);
+  animation: neural-node-pulse 2.8s ease-in-out infinite alternate;
+}
+
+.neural-nodes circle:nth-child(odd) {
+  animation-delay: -1.4s;
+}
+
+.neural-pulses circle {
+  fill: #ffffff;
+  stroke: #3fe9d6;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 10px #3fe9d6);
+}
+
+@keyframes neural-path-glow {
+  from { opacity: .3; }
+  to { opacity: 1; }
+}
+
+@keyframes neural-node-pulse {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+/* Light mode */
+html[data-theme="light"] .neural-pathways path {
+  stroke: rgba(13, 104, 98, .85);
+  filter: drop-shadow(0 0 5px rgba(13, 104, 98, .5));
+}
+
+html[data-theme="light"] .neural-nodes circle {
+  fill: #0d6862;
+  stroke: #3fe9d6;
+}
+
+html[data-theme="light"] .neural-pulses circle {
+  fill: #0d6862;
+  stroke: #3fe9d6;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .neural-pathways path,
+  .neural-nodes circle {
+    animation: none;
+  }
+}
