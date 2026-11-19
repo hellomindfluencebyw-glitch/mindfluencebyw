@@ -3216,21 +3216,24 @@ html[data-theme="light"] .neural-depth path {
 
 .service-neural-pulse {
   position: absolute;
-  top: -45px;
-  left: -2px;
-  width: 5px;
-  height: 45px;
-  border-radius: 50%;
+  top: -72px;
+  left: -4px;
+  width: 9px;
+  height: 72px;
+  border-radius: 999px;
   background: linear-gradient(
     180deg,
-    transparent,
-    #3fe9d6,
-    #ffffff
+    transparent 0%,
+    rgba(63, 233, 214, 0.35) 35%,
+    #3fe9d6 75%,
+    #ffffff 100%
   );
   box-shadow:
     0 0 8px #3fe9d6,
-    0 0 18px rgba(63, 233, 214, 0.8);
-  animation: service-signal-travel 7s linear infinite;
+    0 0 18px rgba(63, 233, 214, 0.9),
+    0 0 32px rgba(63, 233, 214, 0.55);
+  filter: brightness(1.5);
+  animation: service-signal-travel 5s linear infinite;
 }
 
 .service-row-new {
@@ -3250,7 +3253,7 @@ html[data-theme="light"] .neural-depth path {
 
 @keyframes service-signal-travel {
   0% {
-    top: -45px;
+    top: -72px;
     opacity: 0;
   }
   8% {
@@ -3260,13 +3263,26 @@ html[data-theme="light"] .neural-depth path {
     opacity: 1;
   }
   100% {
-    top: calc(100% + 45px);
+    top: calc(100% + 72px);
     opacity: 0;
   }
 }
 
 /* Light mode */
-html[data-theme="light"] .service-neural-line {
+html[data-theme="light"] .service-neural-pulse {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(13, 104, 98, 0.3) 30%,
+    #0d6862 75%,
+    #3fe9d6 100%
+  );
+  box-shadow:
+    0 0 8px rgba(13, 104, 98, 0.85),
+    0 0 18px rgba(13, 104, 98, 0.6),
+    0 0 30px rgba(13, 104, 98, 0.3);
+  filter: brightness(1.15);
+}
   background: linear-gradient(
     180deg,
     transparent,
@@ -3274,16 +3290,6 @@ html[data-theme="light"] .service-neural-line {
     rgba(13, 104, 98, 0.25) 88%,
     transparent
   );
-}
-
-html[data-theme="light"] .service-neural-pulse {
-  background: linear-gradient(
-    180deg,
-    transparent,
-    #0d6862,
-    #3fe9d6
-  );
-  box-shadow: 0 0 12px rgba(13, 104, 98, 0.65);
 }
 
 html[data-theme="light"] .service-row-new:hover h3 {
