@@ -2924,6 +2924,8 @@ html[data-theme="light"] .global-nav nav a { color: rgba(17,21,20,.72); }
 /* Light theme */
 html[data-theme="light"] .memory-gallery-shell::before {
   opacity: .2;
+  }
+
   /* Neural network reacts when a memory is explored */
 .memory-gallery-shell:has(.memory-gallery-card:hover)::before {
   opacity: 1;
