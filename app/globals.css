@@ -2938,13 +2938,25 @@ html[data-theme="light"] .memory-gallery-shell::before {
   animation-duration: 3s;
 }
 
-/* Keep the neural environment visible in light mode */
 html[data-theme="light"] .memory-gallery-shell::before {
-  opacity: .55;
+  opacity: .9;
+  filter: brightness(.8) contrast(1.5) saturate(1.4);
+}
+
+html[data-theme="light"] .memory-gallery-shell {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(13, 104, 98, 0.13), transparent 75%);
 }
 
 html[data-theme="light"] .memory-gallery-shell::after {
-  opacity: .4;
+  background:
+    linear-gradient(110deg, transparent 15%, rgba(13, 104, 98, .2) 48%, transparent 78%);
+  background-size: 220% 100%;
+}
+
+html[data-theme="light"] .memory-gallery-shell::after {
+  opacity: .85;
+  filter: brightness(.75) contrast(1.4);
 }
 
 html[data-theme="light"] .memory-gallery-card {
