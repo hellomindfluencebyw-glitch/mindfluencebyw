@@ -3134,3 +3134,56 @@ html[data-theme="light"] .neural-pulses circle {
     animation: none;
   }
 }
+/* ==========================================
+   MINDFLUENCE — NEURAL DEPTH LAYER
+   ========================================== */
+
+.neural-depth {
+  opacity: 0.22;
+  filter: blur(2px);
+}
+
+.neural-depth path {
+  fill: none;
+  stroke: rgba(63, 233, 214, 0.7);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 18;
+  animation: neural-depth-drift 18s linear infinite;
+}
+
+.neural-depth path:nth-child(2) {
+  animation-duration: 24s;
+  animation-direction: reverse;
+  opacity: 0.65;
+}
+
+.neural-depth path:nth-child(3) {
+  animation-duration: 30s;
+  opacity: 0.45;
+}
+
+@keyframes neural-depth-drift {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -260;
+  }
+}
+
+/* Light mode */
+html[data-theme="light"] .neural-depth {
+  opacity: 0.16;
+}
+
+html[data-theme="light"] .neural-depth path {
+  stroke: rgba(13, 104, 98, 0.7);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .neural-depth path {
+    animation: none;
+  }
+}
