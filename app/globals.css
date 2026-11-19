@@ -3317,10 +3317,12 @@ html[data-theme="light"] .service-row-new:hover h3 {
 
 @media (max-width: 600px) {
   .service-creative-orbit {
-    top: -35px;
-    right: 8px;
-    transform: scale(0.78);
-    transform-origin: top right;
+   top: -85px;
+right: 24px;
+width: 160px;
+height: 120px;
+transform: scale(0.66);
+transform-origin: top right;
   }
 }
 
