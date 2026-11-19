@@ -3283,15 +3283,7 @@ html[data-theme="light"] .service-neural-pulse {
     0 0 30px rgba(13, 104, 98, 0.3);
   filter: brightness(1.15);
 }
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(13, 104, 98, 0.25) 12%,
-    rgba(13, 104, 98, 0.25) 88%,
-    transparent
-  );
-}
-
+  
 html[data-theme="light"] .service-row-new:hover h3 {
   color: #0d6862;
 }
