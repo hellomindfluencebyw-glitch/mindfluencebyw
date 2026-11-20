@@ -2451,6 +2451,133 @@ html[data-theme="light"] .theme-toggle { color: var(--foreground); border-color:
 .service-row-new h3 { margin: 0; font: 600 clamp(20px, 2vw, 28px) var(--font-fraunces), serif; }
 .service-row-new p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
+/* ==========================================
+   MINDFLUENCE — SERVICES EDITORIAL STAGE
+   ========================================== */
+
+.service-editorial-stage {
+  position: relative;
+  min-height: 275px;
+  padding: 34px 0 42px;
+  isolation: isolate;
+}
+
+.service-editorial-copy {
+  position: relative;
+  z-index: 5;
+  width: 58%;
+}
+
+.service-editorial-kicker {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--primary);
+  font: 700 10px var(--font-plex-mono), monospace;
+  letter-spacing: 0.2em;
+}
+
+.service-editorial-headline {
+  margin: 0;
+  color: #f5f2e9;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.service-editorial-headline span {
+  display: inline-block;
+  margin-top: 8px;
+  color: #d7ff3f;
+  font-style: italic;
+  transform: translateX(24px);
+}
+
+.service-editorial-footer {
+  display: block;
+  max-width: 340px;
+  margin-top: 24px;
+  color: var(--muted);
+  font: 9px/1.7 var(--font-plex-mono), monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Keep the creative artwork alongside the editorial headline */
+
+.service-editorial-stage .service-creative-orbit {
+  top: 5px;
+  right: 0;
+}
+
+/* LIGHT MODE */
+
+html[data-theme="light"] .service-editorial-headline {
+  color: #080b10;
+}
+
+html[data-theme="light"] .service-editorial-headline span {
+  color: #3977ff;
+}
+
+html[data-theme="light"] .service-editorial-kicker {
+  color: #087f78;
+}
+
+html[data-theme="light"] .service-editorial-footer {
+  color: #555d66;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 900px) {
+  .service-editorial-copy {
+    width: 55%;
+  }
+
+  .service-editorial-headline {
+    font-size: clamp(43px, 7vw, 68px);
+  }
+}
+
+@media (max-width: 700px) {
+  .service-editorial-stage {
+    min-height: 420px;
+    padding-top: 24px;
+  }
+
+  .service-editorial-copy {
+    width: 100%;
+  }
+
+  .service-editorial-headline {
+    font-size: clamp(46px, 12vw, 68px);
+  }
+
+  .service-editorial-headline span {
+    transform: translateX(12px);
+  }
+
+  .service-editorial-footer {
+    max-width: 290px;
+    margin-top: 18px;
+  }
+
+  .service-editorial-stage .service-creative-orbit {
+    top: 175px;
+    right: -8px;
+    transform: scale(0.62);
+    transform-origin: top right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-editorial-headline span {
+    transform: none;
+  }
+}
+
 .method-grid { margin-top: 54px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
 .method-card { min-height: 210px; padding: 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
 .method-card h3 { margin: 42px 0 12px; font: 600 25px var(--font-fraunces), serif; }
