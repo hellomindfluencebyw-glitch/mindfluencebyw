@@ -16,11 +16,29 @@ export default function Services() {
     <span className="service-neural-pulse" />
   </div>
   
-  <div className="service-creative-orbit" aria-hidden="true">
-  <span className="creative-frame creative-frame-one" />
-  <span className="creative-frame creative-frame-two" />
-  <span className="creative-frame creative-frame-three" />
+   
+<div className="service-creative-orbit" aria-hidden="true">
+  <div className="creative-asset creative-campaign">
+    <span className="campaign-kicker">THE BIG IDEA</span>
+    <span className="campaign-visual" />
+    <span className="campaign-title">MAKE IT<br />MATTER.</span>
+    <span className="campaign-footer">MINDFLUENCE STUDIO</span>
+  </div>
+
+  <div className="creative-asset creative-carousel">
+    <span className="carousel-image" />
+    <span className="carousel-line" />
+    <span className="carousel-line short" />
+    <span className="carousel-pages">01 / 05</span>
+  </div>
+
+  <div className="creative-asset creative-reel">
+    <span className="reel-image" />
+    <span className="reel-play">▶</span>
+    <span className="reel-caption">STOP THE SCROLL.</span>
+  </div>
 </div>
+
   
         {SERVICES.map(([title, body], i) => (
           <article className="service-row-new" key={title}>
