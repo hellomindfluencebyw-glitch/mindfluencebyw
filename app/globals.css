@@ -3530,258 +3530,348 @@ transform-origin: top right;
 
 
 /* ==========================================
-   MINDFLUENCE — BOLD CREATIVE CAMPAIGN STUDIO
+   MINDFLUENCE — EXPRESSIVE CAMPAIGN STUDIO
    ========================================== */
 
 .service-creative-orbit {
   position: absolute;
-  top: -115px;
-  right: 18px;
-  width: 280px;
-  height: 190px;
-  z-index: 2;
+  top: -125px;
+  right: -340px;
+  width: 390px;
+  height: 285px;
+  z-index: 4;
   pointer-events: none;
 }
+
+/* SHARED ARTWORK */
 
 .creative-asset {
   position: absolute;
   overflow: hidden;
-  border: 1px solid rgba(244, 240, 232, 0.35);
-  border-radius: 4px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-  color: #f4f0e8;
+  border: 1px solid rgba(244, 242, 235, 0.55);
+  border-radius: 3px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.4);
+  backface-visibility: hidden;
 }
 
-/* 01 — THE CAMPAIGN POSTER */
+/* 01 — CAMPAIGN POSTER */
 
 .creative-campaign {
-  top: 15px;
-  left: 5px;
-  width: 108px;
-  height: 148px;
-  padding: 8px;
+  top: 18px;
+  left: 12px;
+  width: 142px;
+  height: 190px;
   z-index: 3;
-  background: #ff6847;
-  color: #080d0e;
-  border-color: rgba(255, 255, 255, 0.5);
-  animation: creative-campaign-float 6s ease-in-out infinite;
-}
-
-.campaign-kicker,
-.campaign-footer,
-.campaign-title {
-  position: absolute;
-  display: block;
+  padding: 10px;
+  color: #080b10;
+  background: #d7ff3f;
+  border-color: #f5f2e9;
+  animation: campaign-art-float 7s ease-in-out infinite;
 }
 
 .campaign-kicker {
-  top: 10px;
-  left: 9px;
-  font-size: 7px;
+  position: absolute;
+  top: 12px;
+  left: 11px;
+  font-size: 8px;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.7px;
 }
 
 .campaign-visual {
   position: absolute;
-  top: 31px;
-  left: 9px;
-  width: 88px;
-  height: 51px;
+  top: 37px;
+  left: 11px;
+  width: 118px;
+  height: 78px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 70% 35%, #d8ef70 0 12px, transparent 13px),
-    linear-gradient(125deg, #35dcc6 0 35%, #080d0e 36% 58%, #d8ef70 59%);
+    radial-gradient(circle at 72% 28%, #ff5b9e 0 17px, transparent 18px),
+    linear-gradient(135deg, #3977ff 0 38%, #3fe9d6 39% 65%, #080b10 66%);
 }
 
 .campaign-visual::before {
   content: "";
   position: absolute;
-  width: 65px;
-  height: 65px;
-  border: 2px solid #f4f0e8;
+  width: 75px;
+  height: 75px;
+  left: 37px;
+  top: 35px;
+  border: 3px solid #f5f2e9;
   border-radius: 50%;
-  left: 20px;
-  top: 16px;
+}
+
+.campaign-visual::after {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: -9px;
+  top: -12px;
+  background: #3fe9d6;
+  transform: rotate(35deg);
 }
 
 .campaign-title {
-  left: 9px;
-  bottom: 27px;
-  font-size: 18px;
+  position: absolute;
+  left: 10px;
+  bottom: 34px;
+  display: block;
+  font-size: 24px;
   font-weight: 950;
-  line-height: 0.88;
-  letter-spacing: -1px;
+  line-height: 0.82;
+  letter-spacing: -1.6px;
 }
 
 .campaign-footer {
-  left: 9px;
-  bottom: 10px;
-  font-size: 5px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  position: absolute;
+  left: 11px;
+  bottom: 13px;
+  display: block;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
 }
 
-/* 02 — THE SOCIAL CAROUSEL */
+/* 02 — SOCIAL CAROUSEL */
 
 .creative-carousel {
-  top: 3px;
-  left: 88px;
-  width: 92px;
-  height: 124px;
-  padding: 8px;
+  top: 0;
+  left: 125px;
+  width: 120px;
+  height: 160px;
   z-index: 2;
-  transform: rotate(5deg);
-  animation: creative-carousel-float 6.8s ease-in-out infinite;
-  background: #f4f0e8;
-  color: #080d0e;
-  border-color: #35dcc6;
+  padding: 10px;
+  color: #080b10;
+  background: #f5f2e9;
+  border-color: #3fe9d6;
+  transform: rotate(6deg);
+  animation: carousel-art-float 8s ease-in-out infinite;
 }
 
 .carousel-image {
   position: relative;
   display: block;
   width: 100%;
-  height: 57px;
+  height: 77px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 28% 35%, #ff6847 0 13px, transparent 14px),
-    linear-gradient(135deg, #080d0e 0 42%, #35dcc6 43% 70%, #d8ef70 71%);
+    radial-gradient(circle at 30% 38%, #ff5b9e 0 19px, transparent 20px),
+    linear-gradient(130deg, #080b10 0 38%, #3fe9d6 39% 70%, #3977ff 71%);
+}
+
+.carousel-image::before {
+  content: "IDEAS";
+  position: absolute;
+  right: -4px;
+  bottom: 1px;
+  color: #f5f2e9;
+  font-size: 23px;
+  font-weight: 950;
+  letter-spacing: -2px;
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
 }
 
 .carousel-image::after {
   content: "";
   position: absolute;
-  width: 45px;
-  height: 45px;
-  right: -12px;
-  bottom: -20px;
-  border: 2px solid #f4f0e8;
+  right: 8px;
+  top: 8px;
+  width: 31px;
+  height: 31px;
+  border: 2px solid #d7ff3f;
   border-radius: 50%;
 }
 
 .carousel-line {
   display: block;
-  height: 4px;
   width: 90%;
-  margin-top: 9px;
-  background: #080d0e;
+  height: 5px;
+  margin-top: 12px;
+  background: #080b10;
 }
 
 .carousel-line.short {
   width: 57%;
-  margin-top: 5px;
-  background: #ff6847;
+  height: 4px;
+  margin-top: 6px;
+  background: #3977ff;
 }
 
 .carousel-pages {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  font-size: 7px;
+  bottom: 10px;
+  right: 10px;
+  font-size: 8px;
   font-weight: 900;
-  letter-spacing: 0.5px;
-  color: #080d0e;
+  letter-spacing: 1px;
 }
 
-/* 03 — THE REEL */
+/* 03 — REEL CREATIVE */
 
 .creative-reel {
-  top: 28px;
-  left: 177px;
-  width: 82px;
-  height: 116px;
+  top: 39px;
+  left: 247px;
+  width: 108px;
+  height: 148px;
   z-index: 1;
-  transform: rotate(10deg);
-  animation: creative-reel-float 5.7s ease-in-out infinite;
-  background: #101819;
-  border-color: #ff6847;
+  color: #f5f2e9;
+  background: #080b10;
+  border-color: #ff5b9e;
+  transform: rotate(11deg);
+  animation: reel-art-float 6.5s ease-in-out infinite;
 }
 
 .reel-image {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, transparent 25%, rgba(8, 13, 14, 0.95) 100%),
-    radial-gradient(circle at 48% 35%, #d8ef70 0 9%, transparent 10%),
-    linear-gradient(135deg, #ff6847 0 30%, #35dcc6 31% 58%, #101819 59%);
+    linear-gradient(180deg, transparent 20%, rgba(8, 11, 16, 0.15) 43%, #080b10 100%),
+    radial-gradient(ellipse at 50% 32%, #d7ff3f 0 10%, transparent 11%),
+    linear-gradient(125deg, #ff5b9e 0 28%, #3977ff 29% 53%, #3fe9d6 54% 100%);
 }
 
 .reel-image::before {
   content: "";
   position: absolute;
-  width: 48px;
-  height: 48px;
-  top: 17px;
-  left: 17px;
-  border: 2px solid #f4f0e8;
+  top: 18px;
+  left: 19px;
+  width: 66px;
+  height: 66px;
+  border: 2px solid #f5f2e9;
   border-radius: 50%;
+}
+
+.reel-image::after {
+  content: "MAKE THEM LOOK.";
+  position: absolute;
+  left: 8px;
+  bottom: 30px;
+  right: 5px;
+  font-size: 11px;
+  font-weight: 950;
+  line-height: 0.95;
+  letter-spacing: -0.4px;
 }
 
 .reel-play {
   position: absolute;
-  top: 39px;
-  left: 31px;
+  top: 42px;
+  left: 42px;
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: #ff6847;
-  color: #080d0e;
-  font-size: 9px;
-  animation: reel-play-pulse 2s ease-in-out infinite;
+  background: #ff5b9e;
+  color: #080b10;
+  font-size: 10px;
+  animation: reel-play-pulse 2.4s ease-in-out infinite;
 }
 
 .reel-caption {
   position: absolute;
+  left: 8px;
   bottom: 10px;
-  left: 7px;
   right: 5px;
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 0.3px;
-  color: #f4f0e8;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #d7ff3f;
 }
 
-/* INDIVIDUAL MOVEMENT */
+/* INDEPENDENT MOTION */
 
-@keyframes creative-campaign-float {
-  0%, 100% { translate: 0 0; rotate: -3deg; }
-  50% { translate: -3px -10px; rotate: 2deg; }
+@keyframes campaign-art-float {
+  0%, 100% { translate: 0 0; rotate: -4deg; }
+  50% { translate: -4px -12px; rotate: 1deg; }
 }
 
-@keyframes creative-carousel-float {
-  0%, 100% { translate: 0 0; rotate: 3deg; }
-  50% { translate: 4px 9px; rotate: -2deg; }
+@keyframes carousel-art-float {
+  0%, 100% { translate: 0 0; rotate: 4deg; }
+  50% { translate: 5px 10px; rotate: -1deg; }
 }
 
-@keyframes creative-reel-float {
+@keyframes reel-art-float {
   0%, 100% { translate: 0 0; rotate: -2deg; }
-  50% { translate: 4px -8px; rotate: 4deg; }
+  50% { translate: 5px -9px; rotate: 4deg; }
 }
 
 @keyframes reel-play-pulse {
   0%, 100% {
     scale: 1;
-    box-shadow: 0 0 0 0 rgba(255, 104, 71, 0.5);
+    box-shadow: 0 0 0 0 rgba(255, 91, 158, 0.45);
   }
   50% {
     scale: 1.15;
-    box-shadow: 0 0 0 7px rgba(255, 104, 71, 0);
+    box-shadow: 0 0 0 8px rgba(255, 91, 158, 0);
   }
 }
 
-/* SMALL SCREENS */
+/* LIGHT MODE */
+
+html[data-theme="light"] .creative-campaign {
+  background: #3977ff;
+  color: #ffffff;
+  border-color: #080b10;
+}
+
+html[data-theme="light"] .campaign-visual {
+  background:
+    radial-gradient(circle at 72% 28%, #d7ff3f 0 17px, transparent 18px),
+    linear-gradient(135deg, #ff5b9e 0 38%, #3fe9d6 39% 65%, #080b10 66%);
+}
+
+html[data-theme="light"] .campaign-visual::after {
+  background: #d7ff3f;
+}
+
+html[data-theme="light"] .creative-carousel {
+  background: #080b10;
+  color: #f5f2e9;
+  border-color: #3977ff;
+}
+
+html[data-theme="light"] .carousel-image {
+  background:
+    radial-gradient(circle at 30% 38%, #d7ff3f 0 19px, transparent 20px),
+    linear-gradient(130deg, #f5f2e9 0 38%, #ff5b9e 39% 70%, #3977ff 71%);
+}
+
+html[data-theme="light"] .carousel-image::before {
+  color: #080b10;
+}
+
+html[data-theme="light"] .carousel-image::after {
+  border-color: #3fe9d6;
+}
+
+html[data-theme="light"] .carousel-line {
+  background: #f5f2e9;
+}
+
+html[data-theme="light"] .carousel-line.short {
+  background: #ff5b9e;
+}
+
+html[data-theme="light"] .creative-reel {
+  background: #080b10;
+  border-color: #3977ff;
+}
+
+/* MOBILE */
 
 @media (max-width: 700px) {
   .service-creative-orbit {
-    top: -55px;
-    right: 8px;
-    transform: scale(0.72);
+    top: -65px;
+    right: -8px;
+    transform: scale(0.62);
     transform-origin: top right;
   }
 }
+
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   .creative-asset,
