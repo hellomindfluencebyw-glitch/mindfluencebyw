@@ -3428,3 +3428,102 @@ transform-origin: top right;
     animation: none;
   }
 }
+
+
+/* ==========================================
+   MINDFLUENCE — METHOD: IDEAS IN MOTION
+   ========================================== */
+
+.method-neural-flow {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  margin: 12px 0 20px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.method-neural-beam {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  width: 92%;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(63, 233, 214, 0.45) 8%,
+    rgba(63, 233, 214, 0.45) 92%,
+    transparent
+  );
+}
+
+.method-neural-beam::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 42px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #3fe9d6,
+    #ffffff
+  );
+  box-shadow:
+    0 0 10px #3fe9d6,
+    0 0 22px rgba(63, 233, 214, 0.8);
+  animation: method-signal-travel 7s linear infinite;
+}
+
+.method-neural-node {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #3fe9d6;
+  border-radius: 50%;
+  background: #07100f;
+  box-shadow:
+    0 0 8px rgba(63, 233, 214, 0.7),
+    0 0 16px rgba(63, 233, 214, 0.25);
+  transform: translate(-50%, -50%);
+  animation: method-node-activate 7s ease-in-out infinite;
+}
+
+.method-node-one { left: 4%; animation-delay: 0s; }
+.method-node-two { left: 22.4%; animation-delay: 1.4s; }
+.method-node-three { left: 40.8%; animation-delay: 2.8s; }
+.method-node-four { left: 59.2%; animation-delay: 4.2s; }
+.method-node-five { left: 77.6%; animation-delay: 5.6s; }
+.method-node-six { left: 96%; animation-delay: 7s; }
+
+@keyframes method-signal-travel {
+  from { left: 0; }
+  to { left: calc(100% - 42px); }
+}
+
+@keyframes method-node-activate {
+  0%, 18%, 100% {
+    background: #07100f;
+    box-shadow: 0 0 5px rgba(63, 233, 214, 0.25);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  8%, 13% {
+    background: #3fe9d6;
+    box-shadow:
+      0 0 12px #3fe9d6,
+      0 0 25px rgba(63, 233, 214, 0.8);
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .method-neural-beam::after,
+  .method-neural-node {
+    animation: none;
+  }
+}
