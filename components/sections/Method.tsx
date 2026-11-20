@@ -12,6 +12,15 @@ const STEPS = [
 export default function Method() {
   return (
     <Section id="method" eyebrow="THE MINDFLUENCE METHOD" title="We don't start with what to post." description="We start with why people behave the way they do.">
+      <div className="method-neural-flow" aria-hidden="true">
+  <span className="method-neural-beam" />
+  <span className="method-neural-node method-node-one" />
+  <span className="method-neural-node method-node-two" />
+  <span className="method-neural-node method-node-three" />
+  <span className="method-neural-node method-node-four" />
+  <span className="method-neural-node method-node-five" />
+  <span className="method-neural-node method-node-six" />
+</div>
       <div className="method-grid">
         {STEPS.map(([n, title, body]) => (
           <article className="method-card" key={n}>
