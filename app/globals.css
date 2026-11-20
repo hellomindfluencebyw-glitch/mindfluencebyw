@@ -3527,3 +3527,197 @@ transform-origin: top right;
     animation: none;
   }
 }
+
+/* ==========================================
+   MINDFLUENCE — CREATIVE CAMPAIGN STUDIO
+   ========================================== */
+
+.service-creative-orbit {
+  position: absolute;
+  top: -105px;
+  right: 24px;
+  width: 180px;
+  height: 135px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.creative-asset {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid rgba(63, 233, 214, 0.65);
+  border-radius: 5px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  background: #101819;
+  color: #eafffc;
+}
+
+.creative-campaign {
+  top: 15px;
+  left: 8px;
+  width: 72px;
+  height: 100px;
+  padding: 6px;
+  transform: rotate(-12deg);
+  animation: creative-campaign-float 5s ease-in-out infinite;
+  z-index: 1;
+  background: linear-gradient(145deg, #173d39, #07100f);
+}
+
+.campaign-kicker,
+.campaign-footer,
+.campaign-title {
+  position: absolute;
+  display: block;
+}
+
+.campaign-kicker {
+  top: 7px;
+  left: 6px;
+  font-size: 5px;
+  letter-spacing: 1px;
+  color: #8df7e8;
+}
+
+.campaign-visual {
+  position: absolute;
+  top: 23px;
+  left: 7px;
+  width: 56px;
+  height: 32px;
+  background:
+    radial-gradient(circle at 70% 35%, #aefff2 0 5px, transparent 6px),
+    linear-gradient(135deg, #3fe9d6, #153b37 55%, #091211);
+}
+
+.campaign-title {
+  left: 6px;
+  bottom: 19px;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.5px;
+}
+
+.campaign-footer {
+  left: 6px;
+  bottom: 7px;
+  font-size: 4px;
+  letter-spacing: 0.7px;
+  color: #9bded5;
+}
+
+.creative-carousel {
+  top: 5px;
+  left: 61px;
+  width: 66px;
+  height: 88px;
+  padding: 6px;
+  z-index: 3;
+  transform: rotate(5deg);
+  animation: creative-carousel-float 5.8s ease-in-out infinite;
+  background: linear-gradient(160deg, #172b2a, #080d0e);
+}
+
+.carousel-image {
+  display: block;
+  width: 100%;
+  height: 38px;
+  background:
+    linear-gradient(135deg, transparent 45%, rgba(63, 233, 214, 0.7) 46% 49%, transparent 50%),
+    linear-gradient(145deg, #286b63, #10201f);
+}
+
+.carousel-line {
+  display: block;
+  height: 3px;
+  width: 85%;
+  margin-top: 7px;
+  border-radius: 3px;
+  background: #3fe9d6;
+}
+
+.carousel-line.short {
+  width: 55%;
+  margin-top: 4px;
+  opacity: 0.4;
+}
+
+.carousel-pages {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-size: 6px;
+  color: #9bded5;
+}
+
+.creative-reel {
+  top: 25px;
+  left: 119px;
+  width: 57px;
+  height: 82px;
+  z-index: 2;
+  transform: rotate(12deg);
+  animation: creative-reel-float 5.3s ease-in-out infinite;
+  background: linear-gradient(160deg, #193e39, #080d0e);
+}
+
+.reel-image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.8)),
+    radial-gradient(circle at 50% 35%, #74c9b8, #173c37 45%, #091211);
+}
+
+.reel-play {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(63, 233, 214, 0.9);
+  color: #07100f;
+  font-size: 8px;
+  animation: reel-play-pulse 2s ease-in-out infinite;
+}
+
+.reel-caption {
+  position: absolute;
+  bottom: 8px;
+  left: 5px;
+  right: 3px;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+@keyframes creative-campaign-float {
+  0%, 100% { translate: 0 0; rotate: -2deg; }
+  50% { translate: 0 -8px; rotate: 2deg; }
+}
+
+@keyframes creative-carousel-float {
+  0%, 100% { translate: 0 0; rotate: 2deg; }
+  50% { translate: 0 7px; rotate: -2deg; }
+}
+
+@keyframes creative-reel-float {
+  0%, 100% { translate: 0 0; rotate: -2deg; }
+  50% { translate: 0 -6px; rotate: 3deg; }
+}
+
+@keyframes reel-play-pulse {
+  0%, 100% { scale: 1; box-shadow: 0 0 0 0 rgba(63, 233, 214, 0.4); }
+  50% { scale: 1.12; box-shadow: 0 0 0 5px rgba(63, 233, 214, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creative-asset,
+  .reel-play {
+    animation: none;
+  }
+}
