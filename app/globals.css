@@ -3530,15 +3530,15 @@ transform-origin: top right;
 
 
 /* ==========================================
-   MINDFLUENCE — CREATIVE CAMPAIGN STUDIO
+   MINDFLUENCE — BOLD CREATIVE CAMPAIGN STUDIO
    ========================================== */
 
 .service-creative-orbit {
   position: absolute;
-  top: -105px;
-  right: 24px;
-  width: 180px;
-  height: 135px;
+  top: -115px;
+  right: 18px;
+  width: 280px;
+  height: 190px;
   z-index: 2;
   pointer-events: none;
 }
@@ -3546,23 +3546,25 @@ transform-origin: top right;
 .creative-asset {
   position: absolute;
   overflow: hidden;
-  border: 1px solid rgba(63, 233, 214, 0.65);
-  border-radius: 5px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  background: #101819;
-  color: #eafffc;
+  border: 1px solid rgba(244, 240, 232, 0.35);
+  border-radius: 4px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  color: #f4f0e8;
 }
+
+/* 01 — THE CAMPAIGN POSTER */
 
 .creative-campaign {
   top: 15px;
-  left: 8px;
-  width: 72px;
-  height: 100px;
-  padding: 6px;
-  transform: rotate(-12deg);
-  animation: creative-campaign-float 5s ease-in-out infinite;
-  z-index: 1;
-  background: linear-gradient(145deg, #173d39, #07100f);
+  left: 5px;
+  width: 108px;
+  height: 148px;
+  padding: 8px;
+  z-index: 3;
+  background: #ff6847;
+  color: #080d0e;
+  border-color: rgba(255, 255, 255, 0.5);
+  animation: creative-campaign-float 6s ease-in-out infinite;
 }
 
 .campaign-kicker,
@@ -3573,147 +3575,212 @@ transform-origin: top right;
 }
 
 .campaign-kicker {
-  top: 7px;
-  left: 6px;
-  font-size: 5px;
-  letter-spacing: 1px;
-  color: #8df7e8;
+  top: 10px;
+  left: 9px;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
 }
 
 .campaign-visual {
   position: absolute;
-  top: 23px;
-  left: 7px;
-  width: 56px;
-  height: 32px;
+  top: 31px;
+  left: 9px;
+  width: 88px;
+  height: 51px;
+  overflow: hidden;
   background:
-    radial-gradient(circle at 70% 35%, #aefff2 0 5px, transparent 6px),
-    linear-gradient(135deg, #3fe9d6, #153b37 55%, #091211);
+    radial-gradient(circle at 70% 35%, #d8ef70 0 12px, transparent 13px),
+    linear-gradient(125deg, #35dcc6 0 35%, #080d0e 36% 58%, #d8ef70 59%);
+}
+
+.campaign-visual::before {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border: 2px solid #f4f0e8;
+  border-radius: 50%;
+  left: 20px;
+  top: 16px;
 }
 
 .campaign-title {
-  left: 6px;
-  bottom: 19px;
-  font-size: 10px;
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.5px;
+  left: 9px;
+  bottom: 27px;
+  font-size: 18px;
+  font-weight: 950;
+  line-height: 0.88;
+  letter-spacing: -1px;
 }
 
 .campaign-footer {
-  left: 6px;
-  bottom: 7px;
-  font-size: 4px;
-  letter-spacing: 0.7px;
-  color: #9bded5;
+  left: 9px;
+  bottom: 10px;
+  font-size: 5px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
+/* 02 — THE SOCIAL CAROUSEL */
+
 .creative-carousel {
-  top: 5px;
-  left: 61px;
-  width: 66px;
-  height: 88px;
-  padding: 6px;
-  z-index: 3;
+  top: 3px;
+  left: 88px;
+  width: 92px;
+  height: 124px;
+  padding: 8px;
+  z-index: 2;
   transform: rotate(5deg);
-  animation: creative-carousel-float 5.8s ease-in-out infinite;
-  background: linear-gradient(160deg, #172b2a, #080d0e);
+  animation: creative-carousel-float 6.8s ease-in-out infinite;
+  background: #f4f0e8;
+  color: #080d0e;
+  border-color: #35dcc6;
 }
 
 .carousel-image {
+  position: relative;
   display: block;
   width: 100%;
-  height: 38px;
+  height: 57px;
+  overflow: hidden;
   background:
-    linear-gradient(135deg, transparent 45%, rgba(63, 233, 214, 0.7) 46% 49%, transparent 50%),
-    linear-gradient(145deg, #286b63, #10201f);
+    radial-gradient(circle at 28% 35%, #ff6847 0 13px, transparent 14px),
+    linear-gradient(135deg, #080d0e 0 42%, #35dcc6 43% 70%, #d8ef70 71%);
+}
+
+.carousel-image::after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  right: -12px;
+  bottom: -20px;
+  border: 2px solid #f4f0e8;
+  border-radius: 50%;
 }
 
 .carousel-line {
   display: block;
-  height: 3px;
-  width: 85%;
-  margin-top: 7px;
-  border-radius: 3px;
-  background: #3fe9d6;
+  height: 4px;
+  width: 90%;
+  margin-top: 9px;
+  background: #080d0e;
 }
 
 .carousel-line.short {
-  width: 55%;
-  margin-top: 4px;
-  opacity: 0.4;
+  width: 57%;
+  margin-top: 5px;
+  background: #ff6847;
 }
 
 .carousel-pages {
   position: absolute;
-  bottom: 6px;
-  right: 6px;
-  font-size: 6px;
-  color: #9bded5;
+  bottom: 8px;
+  right: 8px;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #080d0e;
 }
 
+/* 03 — THE REEL */
+
 .creative-reel {
-  top: 25px;
-  left: 119px;
-  width: 57px;
-  height: 82px;
-  z-index: 2;
-  transform: rotate(12deg);
-  animation: creative-reel-float 5.3s ease-in-out infinite;
-  background: linear-gradient(160deg, #193e39, #080d0e);
+  top: 28px;
+  left: 177px;
+  width: 82px;
+  height: 116px;
+  z-index: 1;
+  transform: rotate(10deg);
+  animation: creative-reel-float 5.7s ease-in-out infinite;
+  background: #101819;
+  border-color: #ff6847;
 }
 
 .reel-image {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.8)),
-    radial-gradient(circle at 50% 35%, #74c9b8, #173c37 45%, #091211);
+    linear-gradient(180deg, transparent 25%, rgba(8, 13, 14, 0.95) 100%),
+    radial-gradient(circle at 48% 35%, #d8ef70 0 9%, transparent 10%),
+    linear-gradient(135deg, #ff6847 0 30%, #35dcc6 31% 58%, #101819 59%);
+}
+
+.reel-image::before {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 17px;
+  left: 17px;
+  border: 2px solid #f4f0e8;
+  border-radius: 50%;
 }
 
 .reel-play {
   position: absolute;
-  top: 25px;
-  left: 20px;
+  top: 39px;
+  left: 31px;
   display: grid;
   place-items: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: rgba(63, 233, 214, 0.9);
-  color: #07100f;
-  font-size: 8px;
+  background: #ff6847;
+  color: #080d0e;
+  font-size: 9px;
   animation: reel-play-pulse 2s ease-in-out infinite;
 }
 
 .reel-caption {
   position: absolute;
-  bottom: 8px;
-  left: 5px;
-  right: 3px;
-  font-size: 6px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
+  bottom: 10px;
+  left: 7px;
+  right: 5px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  color: #f4f0e8;
 }
 
+/* INDIVIDUAL MOVEMENT */
+
 @keyframes creative-campaign-float {
-  0%, 100% { translate: 0 0; rotate: -2deg; }
-  50% { translate: 0 -8px; rotate: 2deg; }
+  0%, 100% { translate: 0 0; rotate: -3deg; }
+  50% { translate: -3px -10px; rotate: 2deg; }
 }
 
 @keyframes creative-carousel-float {
-  0%, 100% { translate: 0 0; rotate: 2deg; }
-  50% { translate: 0 7px; rotate: -2deg; }
+  0%, 100% { translate: 0 0; rotate: 3deg; }
+  50% { translate: 4px 9px; rotate: -2deg; }
 }
 
 @keyframes creative-reel-float {
   0%, 100% { translate: 0 0; rotate: -2deg; }
-  50% { translate: 0 -6px; rotate: 3deg; }
+  50% { translate: 4px -8px; rotate: 4deg; }
 }
 
 @keyframes reel-play-pulse {
-  0%, 100% { scale: 1; box-shadow: 0 0 0 0 rgba(63, 233, 214, 0.4); }
-  50% { scale: 1.12; box-shadow: 0 0 0 5px rgba(63, 233, 214, 0); }
+  0%, 100% {
+    scale: 1;
+    box-shadow: 0 0 0 0 rgba(255, 104, 71, 0.5);
+  }
+  50% {
+    scale: 1.15;
+    box-shadow: 0 0 0 7px rgba(255, 104, 71, 0);
+  }
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 700px) {
+  .service-creative-orbit {
+    top: -55px;
+    right: 8px;
+    transform: scale(0.72);
+    transform-origin: top right;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
