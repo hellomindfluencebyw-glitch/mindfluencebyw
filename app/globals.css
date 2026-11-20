@@ -3435,10 +3435,10 @@ html[data-theme="light"] .service-row-new:hover h3 {
 
 .service-creative-orbit {
   position: absolute;
-  top: -55px;
-  right: 24px;
-  width: 160px;
-  height: 120px;
+  top: -12px;
+  right: 0;
+  width: 340px;
+  height: 250px;
   z-index: 2;
   pointer-events: none;
 }
@@ -3685,12 +3685,12 @@ transform-origin: top right;
 /* 01 — CAMPAIGN POSTER */
 
 .creative-campaign {
-  top: 18px;
+  top: 8px;
   left: 12px;
-  width: 142px;
-  height: 190px;
+  width: 205px;
+  height: 245px;
   z-index: 3;
-  padding: 10px;
+  padding: 15px;
   color: #080b10;
   background: #d7ff3f;
   border-color: #f5f2e9;
@@ -3699,22 +3699,23 @@ transform-origin: top right;
 
 .campaign-kicker {
   position: absolute;
-  top: 12px;
-  left: 11px;
-  font-size: 8px;
+  top: 16px;
+  left: 15px;
+  font-size: 9px;
   font-weight: 900;
-  letter-spacing: 1.7px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
 }
 
 .campaign-visual {
   position: absolute;
-  top: 37px;
-  left: 11px;
-  width: 118px;
-  height: 78px;
+  top: 42px;
+  left: 15px;
+  width: 175px;
+  height: 92px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 72% 28%, #ff5b9e 0 17px, transparent 18px),
+    radial-gradient(circle at 72% 28%, #ff5b9e 0 20px, transparent 21px),
     linear-gradient(135deg, #3977ff 0 38%, #3fe9d6 39% 65%, #080b10 66%);
 }
 
@@ -3742,34 +3743,37 @@ transform-origin: top right;
 
 .campaign-title {
   position: absolute;
-  left: 10px;
-  bottom: 34px;
+  left: 14px;
+  bottom: 42px;
   display: block;
-  font-size: 24px;
+  font-family: var(--font-fraunces), serif;
+  font-size: 34px;
   font-weight: 950;
-  line-height: 0.82;
-  letter-spacing: -1.6px;
+  line-height: 0.78;
+  letter-spacing: -2.2px;
+  text-transform: uppercase;
 }
 
 .campaign-footer {
   position: absolute;
-  left: 11px;
-  bottom: 13px;
+  left: 15px;
+  bottom: 16px;
   display: block;
-  font-size: 6px;
+  font-size: 7px;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
 }
 
 /* 02 — SOCIAL CAROUSEL */
 
 .creative-carousel {
   top: 0;
-  left: 125px;
-  width: 120px;
-  height: 160px;
+  left: 170px;
+  width: 150px;
+  height: 190px;
   z-index: 2;
-  padding: 10px;
+  padding: 12px;
   color: #080b10;
   background: #f5f2e9;
   border-color: #3fe9d6;
@@ -3781,10 +3785,10 @@ transform-origin: top right;
   position: relative;
   display: block;
   width: 100%;
-  height: 77px;
+  height: 105px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 30% 38%, #ff5b9e 0 19px, transparent 20px),
+    radial-gradient(circle at 30% 38%, #ff5b9e 0 23px, transparent 24px),
     linear-gradient(130deg, #080b10 0 38%, #3fe9d6 39% 70%, #3977ff 71%);
 }
 
@@ -3814,35 +3818,35 @@ transform-origin: top right;
 
 .carousel-line {
   display: block;
-  width: 90%;
-  height: 5px;
-  margin-top: 12px;
+  width: 88%;
+  height: 4px;
+  margin-top: 10px;
   background: #080b10;
 }
 
 .carousel-line.short {
-  width: 57%;
+  width: 62%;
   height: 4px;
-  margin-top: 6px;
+  margin-top: 7px;
   background: #3977ff;
 }
 
 .carousel-pages {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 8px;
+  bottom: 12px;
+  right: 12px;
+  font-size: 9px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
 
 /* 03 — REEL CREATIVE */
 
 .creative-reel {
-  top: 39px;
-  left: 247px;
+  top: 42px;
+  left: 250px;
   width: 108px;
-  height: 148px;
+  height: 155px;
   z-index: 1;
   color: #f5f2e9;
   background: #080b10;
@@ -3885,27 +3889,28 @@ transform-origin: top right;
 
 .reel-play {
   position: absolute;
-  top: 42px;
+  top: 48px;
   left: 42px;
   display: grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #ff5b9e;
   color: #080b10;
-  font-size: 10px;
+  font-size: 11px;
   animation: reel-play-pulse 2.4s ease-in-out infinite;
 }
 
 .reel-caption {
   position: absolute;
-  left: 8px;
-  bottom: 10px;
-  right: 5px;
-  font-size: 6px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  left: 10px;
+  bottom: 12px;
+  right: 8px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  line-height: 1.3;
   color: #d7ff3f;
 }
 
