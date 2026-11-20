@@ -2445,10 +2445,66 @@ html[data-theme="light"] .theme-toggle { color: var(--foreground); border-color:
 .section-title { max-width: 900px; font-size: clamp(42px, 6vw, 82px) !important; letter-spacing: -.045em !important; }
 .section-description { max-width: 700px !important; color: var(--muted) !important; }
 
-.service-list-new { margin-top: 54px; border-top: 1px solid var(--border); }
-.service-row-new { display: grid; grid-template-columns: 70px minmax(250px, 1fr) minmax(280px, 1.1fr); gap: 28px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--border); }
+.service-row-new {
+  position: relative;
+  display: grid;
+  grid-template-columns: 65px minmax(220px, 0.9fr) minmax(260px, 1.1fr);
+  gap: 26px;
+  align-items: center;
+  padding: 38px 30px;
+  margin: 0 0 12px;
+  border: 1px solid rgba(63, 233, 214, 0.18);
+  border-radius: 3px;
+  background: rgba(63, 233, 214, 0.035);
+  overflow: hidden;
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
 .service-row-index, .method-number { font: 11px var(--font-plex-mono), monospace; color: var(--primary); letter-spacing: .08em; }
-.service-row-new h3 { margin: 0; font: 600 clamp(20px, 2vw, 28px) var(--font-fraunces), serif; }
+/* MINDFLUENCE — EDITORIAL SERVICE NUMBERS */
+
+.service-row-new .service-row-index {
+  display: inline-block;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  color: #d7ff3f;
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.service-row-new:nth-of-type(odd) .service-row-index {
+  color: #3fe9d6;
+}
+
+.service-row-new:nth-of-type(even) .service-row-index {
+  color: #ff5b9e;
+}
+
+html[data-theme="light"] .service-row-new .service-row-index {
+  color: #3977ff;
+}
+
+.service-row-new:hover .service-row-index {
+  transform: translateX(6px);
+  color: #ff5b9e;
+}
+.service-row-new h3 {
+  position: relative;
+  margin: 0;
+  max-width: 520px;
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(27px, 3.2vw, 43px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -1.8px;
+  color: var(--text);
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
 .service-row-new p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
 /* ==========================================
@@ -2507,8 +2563,10 @@ html[data-theme="light"] .theme-toggle { color: var(--foreground); border-color:
 /* Keep the creative artwork alongside the editorial headline */
 
 .service-editorial-stage .service-creative-orbit {
-  top: 5px;
+  top: 22px;
   right: 0;
+  width: 390px;
+  height: 280px;
 }
 
 /* LIGHT MODE */
@@ -2569,6 +2627,33 @@ html[data-theme="light"] .service-editorial-footer {
     right: -8px;
     transform: scale(0.62);
     transform-origin: top right;
+      .service-row-new {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    padding: 26px 18px;
+    margin-bottom: 10px;
+  }
+
+  .service-row-new .service-row-index {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 13px;
+    padding-top: 7px;
+  }
+
+  .service-row-new h3 {
+    grid-column: 2;
+    font-size: clamp(27px, 8vw, 36px);
+    line-height: 0.98;
+  }
+
+  .service-row-new p {
+    grid-column: 2;
+    font-size: 13px;
+    line-height: 1.65;
+    margin-top: 5px;
+  
   }
 }
 
@@ -3843,11 +3928,11 @@ transform-origin: top right;
 /* 03 — REEL CREATIVE */
 
 .creative-reel {
-  top: 42px;
-  left: 250px;
+  top: 55px;
+  left: 280px;
   width: 108px;
   height: 155px;
-  z-index: 1;
+  z-index: 4;
   color: #f5f2e9;
   background: #080b10;
   border-color: #ff5b9e;
@@ -4011,4 +4096,114 @@ html[data-theme="light"] .creative-reel {
   .reel-play {
     animation: none;
   }
+}
+
+/* ==========================================
+   MINDFLUENCE — EDITORIAL SERVICE COLLECTION
+   ========================================== */
+
+/* 01 — STRATEGY */
+.service-row-new:nth-of-type(1) {
+  background: #d7ff3f;
+  border-color: #d7ff3f;
+}
+
+.service-row-new:nth-of-type(1) h3,
+.service-row-new:nth-of-type(1) p {
+  color: #080b10;
+}
+
+.service-row-new:nth-of-type(1) .service-row-index {
+  color: #080b10;
+}
+
+/* 02 — BRAND IDENTITY */
+.service-row-new:nth-of-type(2) {
+  background: #3977ff;
+  border-color: #3977ff;
+}
+
+.service-row-new:nth-of-type(2) h3,
+.service-row-new:nth-of-type(2) p,
+.service-row-new:nth-of-type(2) .service-row-index {
+  color: #ffffff;
+}
+
+/* 03 — BEHAVIOUR LAB */
+.service-row-new:nth-of-type(3) {
+  background: #3fe9d6;
+  border-color: #3fe9d6;
+}
+
+.service-row-new:nth-of-type(3) h3,
+.service-row-new:nth-of-type(3) p,
+.service-row-new:nth-of-type(3) .service-row-index {
+  color: #080b10;
+}
+
+/* 04 — CONTENT SYSTEM */
+.service-row-new:nth-of-type(4) {
+  background: #ff5b9e;
+  border-color: #ff5b9e;
+}
+
+.service-row-new:nth-of-type(4) h3,
+.service-row-new:nth-of-type(4) p,
+.service-row-new:nth-of-type(4) .service-row-index {
+  color: #080b10;
+}
+
+/* 05 — GROWTH ENGINE */
+.service-row-new:nth-of-type(5) {
+  background: #f5f2e9;
+  border-color: #f5f2e9;
+}
+
+.service-row-new:nth-of-type(5) h3,
+.service-row-new:nth-of-type(5) p,
+.service-row-new:nth-of-type(5) .service-row-index {
+  color: #080b10;
+}
+
+/* 06 — CAMPAIGN STUDIO */
+.service-row-new:nth-of-type(6) {
+  background: #080b10;
+  border-color: #3fe9d6;
+}
+
+.service-row-new:nth-of-type(6) h3 {
+  color: #d7ff3f;
+}
+
+.service-row-new:nth-of-type(6) p {
+  color: #f5f2e9;
+}
+
+.service-row-new:nth-of-type(6) .service-row-index {
+  color: #3fe9d6;
+}
+
+/* INTERACTION */
+.service-row-new:hover {
+  transform: translateY(-3px);
+}
+
+.service-row-new:hover h3 {
+  transform: translateX(5px);
+  color: inherit;
+}
+
+/* KEEP THE FINAL DARK PANEL CONSISTENT */
+.service-row-new:nth-of-type(6):hover h3 {
+  color: #3fe9d6;
+}
+
+/* LIGHT MODE — PRESERVE THE COLOURFUL CAMPAIGN LANGUAGE */
+html[data-theme="light"] .service-row-new {
+  box-shadow: 0 8px 24px rgba(8, 11, 16, 0.045);
+}
+
+html[data-theme="light"] .service-row-new:nth-of-type(6) {
+  background: #080b10;
+  border-color: #087f78;
 }
