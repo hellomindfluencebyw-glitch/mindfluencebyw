@@ -1,3 +1,4 @@
+import CreativeAtmosphere from "@/components/background/CreativeAtmosphere";
 import Hero from "@/components/hero/Hero";
 import GlobalNav from "@/components/GlobalNav";
 import WhoWeAre from "@/components/sections/WhoWeAre";
@@ -11,6 +12,7 @@ import Connect from "@/components/sections/Connect";
 export default function Home() {
   return (
     <main id="main-content">
+      <CreativeAtmosphere />
       <GlobalNav />
       <Hero />
       <WhoWeAre />
