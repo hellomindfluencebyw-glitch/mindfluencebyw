@@ -490,7 +490,7 @@ textarea:focus-visible,
   position: relative;
   padding: 96px 24px;
   border-top: 1px solid rgba(143, 255, 234, 0.1);
-  background: linear-gradient(180deg, #05080a 0%, #060a0c 100%);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -2774,7 +2774,7 @@ html[data-theme="light"] .hero .thought--question { color: #33413e; text-shadow:
 html[data-theme="light"] .hero .region-html-sub { color: #0d6862; }
 html[data-theme="light"] .neural-spine-label { color: rgba(17,21,20,.55); }
 html[data-theme="light"] .neural-spine-node.is-active .neural-spine-label { color: #0d6862; }
-html[data-theme="light"] .region-section { background: var(--background); }
+html[data-theme="light"] .region-section { background: transparent; }
 html[data-theme="light"] .region-section::before { opacity: .22; }
 html[data-theme="light"] .work-card-new h3,
 html[data-theme="light"] .method-card h3,
