@@ -4209,3 +4209,71 @@ html[data-theme="light"] .service-row-new:nth-of-type(6) {
   background: #080b10;
   border-color: #087f78;
 }
+
+/* ==========================================
+   MINDFLUENCE — SERVICES: LIGHT MODE COLOUR SYSTEM
+   ========================================== */
+
+html[data-theme="light"] .service-row-new:nth-of-type(1) {
+  background: #d7ff3f;
+  border-color: #d7ff3f;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(1) h3,
+html[data-theme="light"] .service-row-new:nth-of-type(1) p,
+html[data-theme="light"] .service-row-new:nth-of-type(1) .service-row-index {
+  color: #080b10;
+}
+
+html[data-theme="light"] .service-row-new:nth-of-type(2) {
+  background: #3977ff;
+  border-color: #3977ff;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(2) h3,
+html[data-theme="light"] .service-row-new:nth-of-type(2) p,
+html[data-theme="light"] .service-row-new:nth-of-type(2) .service-row-index {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .service-row-new:nth-of-type(3) {
+  background: #3fe9d6;
+  border-color: #3fe9d6;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(3) h3,
+html[data-theme="light"] .service-row-new:nth-of-type(3) p,
+html[data-theme="light"] .service-row-new:nth-of-type(3) .service-row-index {
+  color: #080b10;
+}
+
+html[data-theme="light"] .service-row-new:nth-of-type(4) {
+  background: #ff5b9e;
+  border-color: #ff5b9e;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(4) h3,
+html[data-theme="light"] .service-row-new:nth-of-type(4) p,
+html[data-theme="light"] .service-row-new:nth-of-type(4) .service-row-index {
+  color: #080b10;
+}
+
+html[data-theme="light"] .service-row-new:nth-of-type(5) {
+  background: #f5f2e9;
+  border-color: #d8d4c9;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(5) h3,
+html[data-theme="light"] .service-row-new:nth-of-type(5) p,
+html[data-theme="light"] .service-row-new:nth-of-type(5) .service-row-index {
+  color: #080b10;
+}
+
+html[data-theme="light"] .service-row-new:nth-of-type(6) {
+  background: #080b10;
+  border-color: #087f78;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(6) h3 {
+  color: #d7ff3f;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(6) p {
+  color: #f5f2e9;
+}
+html[data-theme="light"] .service-row-new:nth-of-type(6) .service-row-index {
+  color: #3fe9d6;
+}
