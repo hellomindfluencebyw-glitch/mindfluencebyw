@@ -4272,3 +4272,37 @@ html[data-theme="light"] .service-row-new:nth-of-type(6) p {
 html[data-theme="light"] .service-row-new:nth-of-type(6) .service-row-index {
   color: #3fe9d6;
 }
+
+/* LIGHT MODE — CREATIVE SIGNAL */
+
+html[data-theme="light"] .service-neural-line {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(57, 119, 255, 0.38) 18%,
+    rgba(8, 127, 120, 0.32) 50%,
+    rgba(57, 119, 255, 0.38) 82%,
+    transparent 100%
+  );
+  opacity: 1;
+}
+
+html[data-theme="light"] .service-neural-pulse {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #3977ff 25%,
+    #087f78 58%,
+    #d7ff3f 88%,
+    #3977ff 100%
+  );
+  box-shadow:
+    0 0 6px rgba(57, 119, 255, 0.45),
+    0 0 13px rgba(8, 127, 120, 0.3),
+    0 0 20px rgba(57, 119, 255, 0.15);
+}
+
+html[data-theme="light"] .service-neural-pulse::after {
+  background: #3977ff;
+  box-shadow: 0 0 8px rgba(57, 119, 255, 0.4);
+}
