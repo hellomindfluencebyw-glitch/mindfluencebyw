@@ -2622,12 +2622,14 @@ html[data-theme="light"] .service-editorial-footer {
     margin-top: 18px;
   }
 
-  .service-editorial-stage .service-creative-orbit {
+    .service-editorial-stage .service-creative-orbit {
     top: 175px;
     right: -8px;
     transform: scale(0.62);
     transform-origin: top right;
-      .service-row-new {
+  }
+
+  .service-row-new {
     grid-template-columns: 38px minmax(0, 1fr);
     gap: 12px;
     align-items: start;
