@@ -3411,44 +3411,39 @@ html[data-theme="light"] .neural-depth path {
   isolation: isolate;
 }
 
-
-.service-neural-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 1px;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(63, 233, 214, 0.10) 12%,
-    rgba(63, 233, 214, 0.10) 88%,
-    transparent
-  );
-  z-index: 0;
-}
-
-
 .service-neural-pulse {
   position: absolute;
   top: -72px;
-  left: -1px;
-  width: 3px;
-  height: 54px;
+  left: -2px;
+  width: 5px;
+  height: 64px;
   border-radius: 999px;
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(63, 233, 214, 0.25) 35%,
-    #3fe9d6 75%,
-    rgba(255, 255, 255, 0.8) 100%
+    #3977ff 24%,
+    #3fe9d6 58%,
+    #d7ff3f 88%,
+    rgba(255, 255, 255, 0.9) 100%
   );
   box-shadow:
-    0 0 5px rgba(63, 233, 214, 0.55),
-    0 0 12px rgba(63, 233, 214, 0.3);
+    0 0 7px rgba(57, 119, 255, 0.45),
+    0 0 14px rgba(63, 233, 214, 0.4),
+    0 0 20px rgba(215, 255, 63, 0.2);
   filter: brightness(1.15);
   animation: service-signal-travel 5s linear infinite;
+}
+
+.service-neural-pulse::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  bottom: 12px;
+  width: 15px;
+  height: 2px;
+  background: #d7ff3f;
+  box-shadow:
+  0 0 8px rgba(215, 255, 63, 0.5);
 }
 
 .service-row-new {
