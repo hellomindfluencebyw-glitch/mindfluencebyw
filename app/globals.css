@@ -4307,8 +4307,9 @@ html[data-theme="light"] .service-neural-pulse::after {
   box-shadow: 0 0 8px rgba(57, 119, 255, 0.4);
 }
 
+
 /* ==========================================
-   MINDFLUENCE — CREATIVE ATMOSPHERE
+   MINDFLUENCE — BEHAVIOUR INTO CREATIVITY
    ========================================== */
 
 .creative-atmosphere {
@@ -4320,168 +4321,358 @@ html[data-theme="light"] .service-neural-pulse::after {
   isolation: isolate;
 }
 
-.creative-atmosphere::before {
-  content: "";
+/* PSYCHOLOGY — PERCEPTION AND ATTENTION */
+
+.atmosphere-psychology {
   position: absolute;
-  inset: -30%;
-  background:
-    radial-gradient(circle at 18% 25%, rgba(63,233,214,.09), transparent 24%),
-    radial-gradient(circle at 82% 65%, rgba(57,119,255,.08), transparent 26%),
-    radial-gradient(circle at 55% 90%, rgba(215,255,63,.045), transparent 20%);
-  animation: atmosphere-drift 24s ease-in-out infinite alternate;
+  width: 340px;
+  height: 340px;
+  top: 12%;
+  left: -150px;
+  opacity: 0.42;
+  animation: perception-drift 22s ease-in-out infinite alternate;
 }
 
-.atmosphere-grid {
+.perception-ring {
   position: absolute;
   inset: 0;
-  opacity: .13;
-  background-image:
-    linear-gradient(rgba(63,233,214,.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(63,233,214,.12) 1px, transparent 1px);
-  background-size: 90px 90px;
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 75%, transparent);
-}
-
-.atmosphere-frame {
-  position: absolute;
-  width: 38vw;
-  height: 32vw;
-  border: 1px solid rgba(63,233,214,.13);
-  transform: rotate(-18deg);
-  animation: atmosphere-frame-drift 28s ease-in-out infinite alternate;
-}
-
-.atmosphere-frame-one {
-  top: 12%;
-  right: -18%;
-}
-
-.atmosphere-frame-two {
-  bottom: 4%;
-  left: -22%;
-  width: 45vw;
-  height: 28vw;
-  border-color: rgba(57,119,255,.16);
-  animation-delay: -9s;
-}
-
-.atmosphere-orb {
-  position: absolute;
-  width: 180px;
-  height: 180px;
+  border: 1px solid rgba(63, 233, 214, 0.28);
   border-radius: 50%;
-  filter: blur(65px);
-  opacity: .15;
-  animation: atmosphere-orb-drift 19s ease-in-out infinite alternate;
 }
 
-.atmosphere-orb-one {
-  top: 22%;
-  left: 8%;
-  background: #3fe9d6;
+.perception-ring-one {
+  transform: scale(1);
 }
 
-.atmosphere-orb-two {
-  right: 8%;
-  bottom: 18%;
-  background: #3977ff;
-  animation-delay: -7s;
+.perception-ring-two {
+  transform: scale(0.72);
+  border-color: rgba(57, 119, 255, 0.38);
 }
 
-.atmosphere-signal {
+.perception-ring-three {
+  transform: scale(0.42);
+  border-color: rgba(215, 255, 63, 0.5);
+}
+
+.perception-focus {
   position: absolute;
-  width: 90px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #3fe9d6, #d7ff3f, transparent);
-  opacity: .55;
-  animation: atmosphere-signal-travel 12s linear infinite;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3fe9d6;
+  box-shadow: 0 0 22px rgba(63, 233, 214, 0.65);
+  transform: translate(-50%, -50%);
 }
 
-.atmosphere-signal-one {
-  top: 28%;
-  left: -100px;
+.attention-path {
+  position: absolute;
+  height: 1px;
+  width: 125%;
+  left: -12%;
+  top: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(63, 233, 214, 0.5),
+    transparent
+  );
 }
 
-.atmosphere-signal-two {
-  top: 72%;
-  left: -100px;
-  animation-delay: -6s;
-  background: linear-gradient(90deg, transparent, #3977ff, #ff5b9e, transparent);
+.attention-path-two {
+  transform: rotate(55deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(57, 119, 255, 0.45),
+    transparent
+  );
+}
+
+/* CREATIVITY — EDITORIAL COMPOSITION */
+
+.atmosphere-editorial {
+  position: absolute;
+  width: 460px;
+  height: 360px;
+  top: 17%;
+  right: -180px;
+  transform: rotate(-12deg);
+  animation: editorial-drift 26s ease-in-out infinite alternate;
+}
+
+.editorial-frame {
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(63, 233, 214, 0.28);
+}
+
+.editorial-frame-one {
+  transform: rotate(8deg);
+}
+
+.editorial-frame-two {
+  inset: 65px 35px;
+  border-color: rgba(57, 119, 255, 0.4);
+  transform: rotate(-12deg);
+}
+
+.editorial-block {
+  position: absolute;
+  width: 115px;
+  height: 145px;
+  opacity: 0.14;
+}
+
+.editorial-block-one {
+  top: 35px;
+  left: 65px;
+  background: #d7ff3f;
+  transform: rotate(9deg);
+}
+
+.editorial-block-two {
+  top: 110px;
+  left: 190px;
+  width: 135px;
+  height: 90px;
+  background: #3977ff;
+  transform: rotate(-8deg);
+}
+
+.editorial-block-three {
+  top: 215px;
+  left: 105px;
+  width: 100px;
+  height: 75px;
+  background: #ff5b9e;
+  transform: rotate(12deg);
+}
+
+.editorial-orbit {
+  position: absolute;
+  top: 95px;
+  left: 145px;
+  width: 115px;
+  height: 115px;
+  border: 1px solid rgba(63, 233, 214, 0.55);
+  border-radius: 50%;
+  animation: orbit-turn 18s linear infinite;
+}
+
+.editorial-orbit::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  top: -5px;
+  left: 52px;
+  border-radius: 50%;
+  background: #d7ff3f;
+  box-shadow: 0 0 12px rgba(215, 255, 63, 0.45);
+}
+
+.editorial-accent {
+  position: absolute;
+  top: 50px;
+  right: 65px;
+  width: 34px;
+  height: 4px;
+  background: #ff5b9e;
+  transform: rotate(35deg);
+}
+
+/* INSIGHT — CONNECTION AND TRANSFORMATION */
+
+.atmosphere-connections {
+  position: absolute;
+  width: 340px;
+  height: 220px;
+  bottom: 13%;
+  left: 28%;
+  opacity: 0.34;
+  animation: connection-drift 20s ease-in-out infinite alternate;
+}
+
+.connection-line {
+  position: absolute;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(63, 233, 214, 0.7),
+    rgba(57, 119, 255, 0.1)
+  );
+}
+
+.connection-line-one {
+  top: 40px;
+  left: 35px;
+  width: 230px;
+  transform: rotate(24deg);
+}
+
+.connection-line-two {
+  top: 145px;
+  left: 75px;
+  width: 180px;
+  transform: rotate(-35deg);
+}
+
+.connection-node {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3fe9d6;
+  box-shadow: 0 0 12px rgba(63, 233, 214, 0.45);
+}
+
+.connection-node-one {
+  top: 35px;
+  left: 30px;
+}
+
+.connection-node-two {
+  top: 125px;
+  left: 165px;
+  background: #d7ff3f;
+}
+
+.connection-node-three {
+  top: 80px;
+  right: 35px;
+  background: #3977ff;
+}
+
+/* PRINT AND EDITORIAL DETAILS */
+
+.atmosphere-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: radial-gradient(
+    rgba(128, 145, 150, 0.55) 0.7px,
+    transparent 0.7px
+  );
+  background-size: 5px 5px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
 }
 
 .atmosphere-cross {
   position: absolute;
+  font: 18px var(--font-plex-mono), monospace;
   color: #d7ff3f;
-  font: 20px var(--font-plex-mono), monospace;
-  opacity: .3;
-  animation: atmosphere-cross-pulse 5s ease-in-out infinite;
+  opacity: 0.35;
+  animation: cross-flicker 6s ease-in-out infinite;
 }
 
 .atmosphere-cross-one {
-  top: 18%;
-  right: 12%;
+  top: 22%;
+  right: 18%;
 }
 
 .atmosphere-cross-two {
-  bottom: 22%;
-  left: 14%;
+  bottom: 24%;
+  left: 12%;
   color: #3977ff;
-  animation-delay: -2.5s;
+  animation-delay: -3s;
 }
 
-@keyframes atmosphere-drift {
-  from { transform: translate3d(-2%, -1%, 0) scale(1); }
-  to { transform: translate3d(2%, 2%, 0) scale(1.08); }
+/* MOTION */
+
+@keyframes perception-drift {
+  from { transform: translate3d(0, -15px, 0) rotate(-8deg); }
+  to { transform: translate3d(35px, 20px, 0) rotate(8deg); }
 }
 
-@keyframes atmosphere-frame-drift {
-  from { transform: rotate(-18deg) translateY(-12px); }
-  to { transform: rotate(-12deg) translateY(18px); }
+@keyframes editorial-drift {
+  from { translate: 0 -12px; }
+  to { translate: -25px 25px; }
 }
 
-@keyframes atmosphere-orb-drift {
-  from { transform: translate3d(-20px, -15px, 0); }
-  to { transform: translate3d(35px, 25px, 0); }
+@keyframes orbit-turn {
+  to { transform: rotate(360deg); }
 }
 
-@keyframes atmosphere-signal-travel {
-  from { transform: translateX(0); }
-  to { transform: translateX(110vw); }
+@keyframes connection-drift {
+  from { transform: translate3d(-12px, 10px, 0); }
+  to { transform: translate3d(20px, -15px, 0); }
 }
 
-@keyframes atmosphere-cross-pulse {
-  0%, 100% { opacity: .15; transform: scale(.8); }
-  50% { opacity: .55; transform: scale(1.15); }
+@keyframes cross-flicker {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.55; }
 }
 
-/* LIGHT MODE */
+/* LIGHT MODE — COBALT EDITORIAL LANGUAGE */
 
-html[data-theme="light"] .atmosphere-grid {
-  opacity: .10;
-  background-image:
-    linear-gradient(rgba(57,119,255,.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(57,119,255,.12) 1px, transparent 1px);
+html[data-theme="light"] .perception-ring-one {
+  border-color: rgba(8, 127, 120, 0.28);
 }
 
-html[data-theme="light"] .atmosphere-frame {
-  border-color: rgba(57,119,255,.18);
+html[data-theme="light"] .perception-ring-two {
+  border-color: rgba(57, 119, 255, 0.35);
 }
 
-html[data-theme="light"] .atmosphere-orb-one {
-  opacity: .10;
+html[data-theme="light"] .perception-ring-three {
+  border-color: rgba(8, 127, 120, 0.35);
 }
 
-html[data-theme="light"] .atmosphere-orb-two {
-  opacity: .09;
+html[data-theme="light"] .editorial-frame {
+  border-color: rgba(57, 119, 255, 0.3);
 }
 
-html[data-theme="light"] .atmosphere-cross {
-  opacity: .5;
+html[data-theme="light"] .editorial-block {
+  opacity: 0.11;
 }
+
+html[data-theme="light"] .editorial-orbit {
+  border-color: rgba(8, 127, 120, 0.4);
+}
+
+html[data-theme="light"] .atmosphere-grain {
+  opacity: 0.07;
+}
+
+html[data-theme="light"] .atmosphere-connections {
+  opacity: 0.28;
+}
+
+/* MOBILE REFINEMENT */
+
+@media (max-width: 700px) {
+  .atmosphere-psychology {
+    left: -240px;
+    top: 16%;
+  }
+
+  .atmosphere-editorial {
+    right: -300px;
+    top: 24%;
+    transform: scale(0.75) rotate(-12deg);
+  }
+
+  .atmosphere-connections {
+    left: 8%;
+    bottom: 12%;
+    transform: scale(0.75);
+    transform-origin: bottom left;
+  }
+}
+
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   .creative-atmosphere *,
-  .creative-atmosphere::before {
+  .creative-atmosphere *::before {
     animation: none !important;
   }
 }
