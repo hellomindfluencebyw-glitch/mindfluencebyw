@@ -35,9 +35,8 @@ export const RESULTS: ProjectResults[] = [
   { label: "Non-Follower Views / 30 Days", value: "66.2%", source: "Instagram Analytics" },
   { label: "Follower Growth / 30 Days", value: "+6.3% to 322", source: "Instagram Analytics" },
   { label: "Profile Visits / 30 Days", value: "132", source: "Instagram Analytics" },
-   ], 
-    ],
-  
+     ],
+  }, 
   {
     id: "potato-treats",
     title: "Potato Treats",
