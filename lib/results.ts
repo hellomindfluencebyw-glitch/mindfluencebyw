@@ -29,14 +29,15 @@ export const RESULTS: ProjectResults[] = [
   {
     id: "muratish",
     title: "Muratish",
-    signals: [
-      { label: "Views / 30 Days", value: "10,369" },
-      { label: "Accounts Reached", value: "1,670" },
-      { label: "Non-Follower Views", value: "66.2%" },
-      { label: "Follower Growth", value: "+6.3% to 322" },
-      { label: "Profile Visits", value: "132" },
+   signals: [
+  { label: "Views / 30 Days", value: "10,369", source: "Instagram Analytics" },
+  { label: "Accounts Reached / 30 Days", value: "1,670", source: "Instagram Analytics" },
+  { label: "Non-Follower Views / 30 Days", value: "66.2%", source: "Instagram Analytics" },
+  { label: "Follower Growth / 30 Days", value: "+6.3% to 322", source: "Instagram Analytics" },
+  { label: "Profile Visits / 30 Days", value: "132", source: "Instagram Analytics" },
+], 
     ],
-  },
+  
   {
     id: "potato-treats",
     title: "Potato Treats",
