@@ -41,11 +41,17 @@ export const RESULTS: ProjectResults[] = [
     id: "potato-treats",
     title: "Potato Treats",
     signals: [
-      { label: "Peak Engagement Rate", value: "53%" },
-      { label: "Audience Read", value: "B2B, not consumer" },
-      { label: "Engagement Type", value: "Independent audit — no managed tracking" },
-    ],
+  {
+    label: "Peak Engagement Rate",
+    value: "53%",
+    source: "Instagram Analytics",
   },
+  { label: "Audience Read", value: "B2B, not consumer" },
+  {
+    label: "Engagement Type",
+    value: "Independent audit — no managed tracking",
+  },
+],
   {
     id: "aether-aura",
     title: "Aether Aura",
