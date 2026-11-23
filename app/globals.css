@@ -2688,17 +2688,319 @@ html[data-theme="light"] .service-editorial-footer {
 .work-missing-mark { display: inline-block; width: fit-content; border: 1px dashed var(--border); padding: 7px 9px; font: 9px var(--font-plex-mono), monospace; color: var(--muted); letter-spacing: .08em; }
 .work-missing-note { margin-top: 24px; font: 10px/1.5 var(--font-plex-mono), monospace; color: var(--muted); max-width: 390px; }
 
-.lab-layout { margin-top: 54px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; }
-.lab-feature { border: 1px solid var(--border); background: var(--surface); }
-.lab-feature img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.lab-feature-copy { padding: 25px; }
-.lab-feature-copy span { color: var(--primary); font: 9px var(--font-plex-mono), monospace; letter-spacing: .12em; }
-.lab-feature-copy h3 { max-width: 620px; margin: 18px 0 10px; font: 600 clamp(27px, 3vw, 42px)/1 var(--font-fraunces), serif; }
-.lab-feature-copy p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 13px; }
-.lab-principles { border-top: 1px solid var(--border); }
-.lab-principle { padding: 18px 0; border-bottom: 1px solid var(--border); }
-.lab-principle span { font: 11px var(--font-plex-mono), monospace; color: var(--foreground); }
-.lab-principle p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+/* =========================================
+   BEHAVIOUR LAB — EDITORIAL RESEARCH DESIGN
+========================================= */
+
+.lab-editorial {
+  margin-top: 58px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(30px, 5vw, 72px);
+  align-items: start;
+}
+
+.lab-investigation {
+  min-width: 0;
+  position: relative;
+}
+
+.lab-investigation-art {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  background: #101719;
+  isolation: isolate;
+}
+
+.lab-investigation-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.24), transparent 28%),
+    linear-gradient(0deg, rgba(0,0,0,.68), transparent 42%);
+}
+
+.lab-investigation-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+.lab-investigation:hover .lab-investigation-art img {
+  transform: scale(1.035);
+}
+
+.lab-image-index,
+.lab-image-stamp,
+.lab-image-caption {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  font-family: var(--font-plex-mono), monospace;
+  letter-spacing: .12em;
+}
+
+.lab-image-index {
+  top: 20px;
+  left: 20px;
+  font-size: 9px;
+}
+
+.lab-image-stamp {
+  top: 18px;
+  right: 18px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,.65);
+  font-size: 8px;
+  transform: rotate(4deg);
+}
+
+.lab-image-caption {
+  left: 22px;
+  bottom: 20px;
+  font-size: 9px;
+}
+
+.lab-investigation-copy {
+  padding: 26px 0 0;
+}
+
+.lab-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+  color: var(--primary);
+  font: 9px var(--font-plex-mono), monospace;
+  letter-spacing: .11em;
+}
+
+.lab-investigation-copy h3 {
+  max-width: 580px;
+  margin: 23px 0 14px;
+  color: var(--foreground);
+  font: 600 clamp(34px, 4vw, 54px)/.98 var(--font-fraunces), serif;
+  letter-spacing: -.045em;
+}
+
+.lab-investigation-copy h3 span {
+  display: block;
+  color: var(--primary);
+  font-style: italic;
+}
+
+.lab-investigation-copy > p {
+  max-width: 510px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.lab-process {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 27px;
+  padding-top: 17px;
+  border-top: 1px solid var(--border);
+  color: var(--foreground);
+  font: 8px var(--font-plex-mono), monospace;
+  letter-spacing: .07em;
+}
+
+.lab-process i {
+  color: var(--primary);
+  font-style: normal;
+}
+
+/* BEHAVIOUR INDEX */
+
+.lab-index {
+  min-width: 0;
+  border-top: 1px solid var(--foreground);
+}
+
+.lab-index-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 0 18px;
+  color: var(--primary);
+  font: 9px var(--font-plex-mono), monospace;
+  letter-spacing: .12em;
+}
+
+.lab-principles {
+  border-top: 1px solid var(--border);
+}
+
+.lab-principle {
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 20px;
+  gap: 12px;
+  align-items: start;
+  padding: 18px 4px 18px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding .3s ease, background .3s ease;
+}
+
+.lab-principle:hover {
+  padding-left: 9px;
+  background: var(--surface-muted);
+}
+
+.lab-principle-number {
+  padding-top: 3px;
+  color: var(--primary);
+  font: 10px var(--font-plex-mono), monospace;
+}
+
+.lab-principle-copy h4 {
+  margin: 0;
+  color: var(--foreground);
+  font: 500 17px/1.2 var(--font-fraunces), serif;
+}
+
+.lab-principle-copy p {
+  max-width: 390px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.lab-principle-mark {
+  padding-top: 1px;
+  color: var(--muted);
+  font-size: 13px;
+  transition: color .3s ease, transform .3s ease;
+}
+
+.lab-principle:hover .lab-principle-mark {
+  color: var(--primary);
+  transform: translate(3px, -3px);
+}
+
+.lab-index-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 17px;
+  color: var(--muted);
+  font: 8px var(--font-plex-mono), monospace;
+  letter-spacing: .09em;
+}
+
+/* LIGHT MODE */
+
+html[data-theme="light"] .lab-investigation-art {
+  background: #202b2a;
+}
+
+html[data-theme="light"] .lab-investigation-copy h3 {
+  color: #080b10;
+}
+
+html[data-theme="light"] .lab-principle-copy h4 {
+  color: #080b10;
+}
+
+html[data-theme="light"] .lab-principle:hover {
+  background: rgba(8, 11, 16, .035);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .lab-editorial {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .lab-investigation-art {
+    aspect-ratio: 16 / 10;
+  }
+
+  .lab-index {
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .lab-editorial {
+    margin-top: 38px;
+    gap: 40px;
+  }
+
+  .lab-investigation-art {
+    aspect-ratio: 4 / 3;
+  }
+
+  .lab-image-index {
+    top: 14px;
+    left: 14px;
+    font-size: 8px;
+  }
+
+  .lab-image-stamp {
+    top: 12px;
+    right: 12px;
+    font-size: 7px;
+  }
+
+  .lab-image-caption {
+    left: 14px;
+    bottom: 14px;
+    font-size: 7px;
+  }
+
+  .lab-investigation-copy {
+    padding-top: 20px;
+  }
+
+  .lab-investigation-copy h3 {
+    font-size: clamp(34px, 10vw, 44px);
+  }
+
+  .lab-process {
+    gap: 7px;
+    font-size: 7px;
+  }
+
+  .lab-principle {
+    grid-template-columns: 28px minmax(0, 1fr) 16px;
+    gap: 9px;
+    padding: 16px 2px 16px 0;
+  }
+
+  .lab-principle-copy h4 {
+    font-size: 16px;
+  }
+
+  .lab-index-footer {
+    font-size: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-investigation-art img,
+  .lab-principle,
+  .lab-principle-mark {
+    transition: none;
+  }
+}
 
 .audit-cta { margin: 56px 0 30px; padding: 38px; display: flex; align-items: end; justify-content: space-between; gap: 30px; background: #0e5b5b; color: #f4f8f7; }
 .audit-label { font: 10px var(--font-plex-mono), monospace; letter-spacing: .12em; opacity: .7; }
