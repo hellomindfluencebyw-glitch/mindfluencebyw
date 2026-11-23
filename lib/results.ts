@@ -50,9 +50,10 @@ export const RESULTS: ProjectResults[] = [
   {
     label: "Engagement Type",
     value: "Independent audit — no managed tracking",
-  },
-],
-  {
+      },
+    ],
+     {
+
     id: "aether-aura",
     title: "Aether Aura",
     signals: [
