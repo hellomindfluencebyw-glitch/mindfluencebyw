@@ -2714,7 +2714,6 @@ html[data-theme="light"] .service-editorial-footer {
   .hero-content { padding: 110px 24px 70px; }
   .hero { min-height: 720px; }
   .method-grid { grid-template-columns: repeat(2, 1fr); }
-  .lab-layout { grid-template-columns: 1fr; }
   .work-card-new, .work-card-new:nth-child(3n), .work-card-new:nth-child(4n) { grid-column: span 6; }
   .service-row-new { grid-template-columns: 52px 1fr; }
   .service-row-new p { grid-column: 2; }
