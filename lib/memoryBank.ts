@@ -71,23 +71,26 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
     secondaryPrinciples: ["social-proof", "narrative-transport", "familiarity"],
   },
   {
-    id: "aether-aura",
-    title: "Aether Aura",
-    tagline: "Hair care formulation brand, 0→1 build — Lagos, Nigeria",
-    assetDir: "/work/aether-aura/",
-    slideCount: 2,
-    status: "client work",
-    question:
-      "Five real hair care products with a working formulation, but no logo, no packaging, no Instagram, and zero public identity. Most case studies start by auditing what exists. This one starts with nothing to audit.",
-    insight:
-      "Every design decision had to hold up in two places at once: on physical packaging and inside a social feed, for five different SKUs (Hair Growth Oil, Hair Mist, Avocado Hair Butter, Hair Conditioner, Hair Mask), simultaneously.",
-    psychology:
-      "This one is architecture before psychology: the framework-level positioning work follows once the brand is live and there's real audience behaviour to read.",
-    creative:
-      "A full logo mark and color system, packaging-ready labels across all five SKUs, and the Instagram account architecture, built before a single post goes live.",
-    result: "Instagram launch is upcoming. This is a pro-bono brand build, currently mid-build.",
-    memory: "Sometimes the work is building the room before you can decorate it.",
-  },
+    {
+  id: "aether-aura",
+  title: "Aether Aura",
+  tagline: "Logo design, visual identity & brand consultation — Lagos, Nigeria",
+  assetDir: "/work/aether-aura/",
+  slideCount: 2,
+  status: "client work",
+  question:
+    "A hair-care formulation brand with five products needed a clear visual identity and strategic direction ahead of its public launch. How do you give a brand a recognisable foundation before it enters the market?",
+  insight:
+    "The brand needed a cohesive visual identity and an informed view of its existing foundations. The brand audit and consultation helped assess where it stood and clarify what needed to be established.",
+  psychology:
+    "The work focused on building a consistent visual identity to support recognition and brand distinction. Audience behaviour and campaign performance can be assessed once the brand enters the market.",
+  creative:
+    "Designed the logo and developed the visual identity, establishing the brand's core visual direction. The engagement also included a brand audit and consultation to assess its foundations and guide its next steps.",
+  result:
+    "Logo and visual identity completed; brand audit and consultation delivered. Instagram launch is upcoming, so no audience or campaign performance figures are claimed.",
+  memory:
+    "A brand does not need an audience before it needs an identity.",
+},
   {
     id: "potato-treats",
     title: "Potato Treats",
