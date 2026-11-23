@@ -1,8 +1,7 @@
 export type ResultSignal = {
   label: string;
-  // null = not yet confirmed. Never fill this with an invented number —
-  // only what's been explicitly provided as a real campaign figure.
   value: string | null;
+  source?: string;
 };
 
 export type ProjectResults = {
@@ -17,7 +16,11 @@ export const RESULTS: ProjectResults[] = [
     title: "Testimony of Three",
     signals: [
       { label: "Paid Spend", value: "Zero" },
-      { label: "Peak Weekly Reach Growth", value: "+64.9K%" },
+       {
+  label: "Peak Weekly Reach Growth",
+  value: "+64.9K%",
+  source: "Instagram Analytics",
+},
       { label: "Engagement Rate at Audit", value: "13% (vs 6% nano-account average)" },
       { label: "Profile Views / 30 Days", value: "4.7K" },
       { label: "Identity vs Product Content", value: "2.5x better performance" },
