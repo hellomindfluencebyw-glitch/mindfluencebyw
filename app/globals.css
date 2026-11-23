@@ -5489,3 +5489,166 @@ html[data-theme="light"] .who-art-ring-three {
     animation: none;
   }
 }
+
+
+/* ===== CONNECT — EDITORIAL CTA REFINEMENT ===== */
+
+.final-cta {
+  position: relative;
+  max-width: 680px;
+  margin-bottom: 52px;
+  padding: 10px 0 24px;
+}
+
+.final-cta-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(63, 233, 214, 0.3);
+  color: var(--teal, #3fe9d6);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.final-cta-headline {
+  position: relative;
+  width: fit-content;
+}
+
+.final-cta-line {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.final-cta-line--accent {
+  color: var(--teal, #3fe9d6);
+  font-style: italic;
+  padding-left: clamp(18px, 5vw, 64px);
+}
+
+.final-cta-neuron {
+  width: 240px;
+  max-width: 75%;
+  margin: 28px 0 30px;
+  overflow: visible;
+}
+
+.final-cta-neuron-svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.final-cta-neuron-line {
+  stroke: var(--teal, #3fe9d6);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.final-cta-neuron-dot {
+  fill: var(--teal, #3fe9d6);
+}
+
+.final-cta-neuron-hub {
+  fill: var(--teal, #3fe9d6);
+  transform-origin: 216px 21px;
+  filter: drop-shadow(0 0 7px rgba(63, 233, 214, 0.65));
+}
+
+.final-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 13px 0;
+  border: 0;
+  border-bottom: 1px solid var(--teal, #3fe9d6);
+  background: transparent;
+  color: var(--text, inherit);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 20px;
+  cursor: pointer;
+  transition: gap 220ms ease, color 220ms ease;
+}
+
+.final-cta-button:hover {
+  gap: 34px;
+  color: var(--teal, #3fe9d6);
+}
+
+.final-cta-arrow {
+  color: var(--teal, #3fe9d6);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 19px;
+  transition: transform 220ms ease;
+}
+
+.final-cta-button:hover .final-cta-arrow {
+  transform: translate(3px, -3px);
+}
+
+html[data-theme="light"] .final-cta-index {
+  border-color: rgba(15, 91, 91, 0.28);
+  color: #0e7772;
+}
+
+html[data-theme="light"] .final-cta-line--accent {
+  color: #0e7772;
+}
+
+html[data-theme="light"] .final-cta-neuron-line {
+  stroke: #0e7772;
+}
+
+html[data-theme="light"] .final-cta-neuron-dot,
+html[data-theme="light"] .final-cta-neuron-hub {
+  fill: #0e7772;
+}
+
+html[data-theme="light"] .final-cta-button {
+  border-color: #0e7772;
+  color: #171d1c;
+}
+
+html[data-theme="light"] .final-cta-button:hover,
+html[data-theme="light"] .final-cta-arrow {
+  color: #0e7772;
+}
+
+@media (max-width: 620px) {
+  .final-cta {
+    margin-bottom: 40px;
+  }
+
+  .final-cta-index {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .final-cta-line {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .final-cta-neuron {
+    margin: 24px 0;
+  }
+
+  .final-cta-button {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .final-cta-button,
+  .final-cta-arrow {
+    transition: none;
+  }
+}
