@@ -19,8 +19,7 @@ export default function BehaviourLab() {
               alt="Mindfluence Investigative Series — Issue 001"
               loading="lazy"
             />
-            <span className="lab-image-index">FIELD NOTES / 001</span>
-            <span className="lab-image-stamp">MIND / MARKET</span>
+          
             <span className="lab-image-caption">
               AN INVESTIGATION INTO HUMAN BEHAVIOUR
             </span>
