@@ -31,8 +31,11 @@ export default function Results() {
                     <span className="signal-dot" />
                     <span className="signal-label">{s.label}</span>
                     <span className="signal-value">
-                      {confirmed ? s.value : "Pending"}
-                    </span>
+  {confirmed ? s.value : "Pending"}
+  {s.source && (
+    <small className="signal-source">{s.source}</small>
+  )}
+</span>
                   </div>
                 );
               })}
