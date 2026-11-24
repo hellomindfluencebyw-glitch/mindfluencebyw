@@ -1,9 +1,26 @@
 
-import Section from "./Section";
+      import Section from "./Section";
 import { PRINCIPLES } from "@/lib/psychology";
 import { assetPath } from "@/lib/assetPath";
 
+const FEATURED_PRINCIPLE_IDS = [
+  "social-proof",
+  "identity",
+  "scarcity",
+  "loss-aversion",
+  "curiosity-gap",
+  "belonging",
+  "familiarity",
+  "narrative-transport",
+] as const;
+
 export default function BehaviourLab() {
+  const featuredPrinciples = FEATURED_PRINCIPLE_IDS.map((id) =>
+    PRINCIPLES.find((principle) => principle.id === id)
+  ).filter((principle): principle is NonNullable<typeof principle> =>
+    Boolean(principle)
+  );
+
   return (
     <Section
       id="behaviour-lab"
@@ -19,7 +36,7 @@ export default function BehaviourLab() {
               alt="Mindfluence Investigative Series — Issue 001"
               loading="lazy"
             />
-          
+
             <span className="lab-image-caption">
               AN INVESTIGATION INTO HUMAN BEHAVIOUR
             </span>
@@ -61,7 +78,7 @@ export default function BehaviourLab() {
           </div>
 
           <div className="lab-principles">
-            {PRINCIPLES.slice(0, 8).map((p, i) => (
+            {featuredPrinciples.map((p, i) => (
               <article className="lab-principle" key={p.id}>
                 <span className="lab-principle-number">
                   {String(i + 1).padStart(2, "0")}
