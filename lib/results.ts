@@ -92,9 +92,8 @@ export const RESULTS: ProjectResults[] = [
     { label: "Instagram Launch", value: "Upcoming" },
     { label: "Reach", value: null },
     { label: "Followers", value: null },
-  ],
-},
-},
+    ],
+  },
   {
     id: "murata-wakwa",
     title: "Murata Wakwa",
