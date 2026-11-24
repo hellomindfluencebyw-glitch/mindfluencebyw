@@ -83,15 +83,18 @@ export const RESULTS: ProjectResults[] = [
     ],
   },
   {
-    id: "aether-aura",
-    title: "Aether Aura",
-    signals: [
-      { label: "Brand Build", value: "0 to 1, complete" },
-      { label: "Instagram Launch", value: "Upcoming" },
-      { label: "Reach", value: null },
-      { label: "Followers", value: null },
-    ],
-  },
+    {
+  id: "aether-aura",
+  title: "Aether Aura",
+  signals: [
+    { label: "Logo Design", value: "Completed" },
+    { label: "Visual Identity", value: "Completed" },
+    { label: "Brand Audit & Consultation", value: "Completed" },
+    { label: "Instagram Launch", value: "Upcoming" },
+    { label: "Reach", value: null },
+    { label: "Followers", value: null },
+  ],
+},
   {
     id: "murata-wakwa",
     title: "Murata Wakwa",
