@@ -70,25 +70,25 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
       "\"Not everything is a testimony\" opened the campaign with Wesley's own philosophy, not a product shot, and it became the single best-performing post of the entire launch.",
     secondaryPrinciples: ["social-proof", "narrative-transport", "familiarity"],
   },
-    {
+ {
   id: "aether-aura",
   title: "Aether Aura",
-  tagline: "Logo design, visual identity & brand consultation — Lagos, Nigeria",
+  tagline: "Brand identity, packaging design & strategic consultation — Lagos, Nigeria",
   assetDir: "/work/aether-aura/",
   slideCount: 2,
   status: "client work",
   question:
-    "A hair-care formulation brand with five products needed a clear visual identity and strategic direction ahead of its public launch. How do you give a brand a recognisable foundation before it enters the market?",
+    "A hair-care formulation brand with five products needed a recognisable identity and cohesive product presentation ahead of its public launch. How do you create a visual system that works across a brand and its physical products?",
   insight:
-    "The brand needed a cohesive visual identity and an informed view of its existing foundations. The brand audit and consultation helped assess where it stood and clarify what needed to be established.",
+    "The brand needed more than a logo. Its identity had to translate into a cohesive visual direction that could carry through to product packaging and future brand communications.",
   psychology:
-    "The work focused on building a consistent visual identity to support recognition and brand distinction. Audience behaviour and campaign performance can be assessed once the brand enters the market.",
+    "Consistency across brand touchpoints helps build recognition and makes it easier for audiences to identify and distinguish a product range.",
   creative:
-    "Designed the logo and developed the visual identity, establishing the brand's core visual direction. The engagement also included a brand audit and consultation to assess its foundations and guide its next steps.",
+    "Designed the logo, developed the visual identity and created packaging designs for the product range. The engagement also included a brand audit and consultation to assess the brand's foundations and guide its next steps.",
   result:
-    "Logo and visual identity completed; brand audit and consultation delivered. Instagram launch is upcoming, so no audience or campaign performance figures are claimed.",
+    "Logo, visual identity and packaging designs completed. Brand audit and consultation delivered. Instagram launch is upcoming, so no audience or campaign performance figures are claimed.",
   memory:
-    "A brand does not need an audience before it needs an identity.",
+    "A brand identity becomes real when its visual language carries through every touchpoint.",
 },
   {
     id: "potato-treats",
