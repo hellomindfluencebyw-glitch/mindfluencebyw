@@ -1,5 +1,9 @@
 
-      import Section from "./Section";
+   "use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Section from "./Section";
 import { PRINCIPLES } from "@/lib/psychology";
 import { assetPath } from "@/lib/assetPath";
 
@@ -14,7 +18,28 @@ const FEATURED_PRINCIPLE_IDS = [
   "narrative-transport",
 ] as const;
 
+const APPLICATIONS: Record<string, string> = {
+  "social-proof":
+    "Show credible customer experiences, reviews and evidence of real people choosing the brand. Make the proof specific and believable rather than relying on vague popularity claims.",
+  identity:
+    "Build creative around the audience's values, aspirations and sense of self. Help people recognise the kind of person or community the brand represents.",
+  scarcity:
+    "Use genuine limited quantities, deadlines or availability to communicate urgency. The constraint must be real; artificial scarcity can damage trust.",
+  "loss-aversion":
+    "Frame what an audience stands to miss or lose by delaying a decision. Make the consequence clear without resorting to fear or misleading pressure.",
+  "curiosity-gap":
+    "Open with a compelling question, unexpected observation or incomplete piece of information. Give the audience a meaningful payoff when they continue watching or reading.",
+  belonging:
+    "Create shared language, rituals and recognisable cultural references that make the intended audience feel seen and included.",
+  familiarity:
+    "Use consistent visual cues, messaging and recurring content formats. Repeated, recognisable exposure can help a brand become easier to remember.",
+  "narrative-transport":
+    "Turn product benefits into stories people can follow. Use relatable situations, tension and resolution to make the brand's message more memorable.",
+};
+
 export default function BehaviourLab() {
+  const [openPrinciple, setOpenPrinciple] = useState<string | null>(null);
+
   const featuredPrinciples = FEATURED_PRINCIPLE_IDS.map((id) =>
     PRINCIPLES.find((principle) => principle.id === id)
   ).filter((principle): principle is NonNullable<typeof principle> =>
@@ -78,20 +103,68 @@ export default function BehaviourLab() {
           </div>
 
           <div className="lab-principles">
-            {featuredPrinciples.map((p, i) => (
-              <article className="lab-principle" key={p.id}>
-                <span className="lab-principle-number">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+            {featuredPrinciples.map((p, i) => {
+              const isOpen = openPrinciple === p.id;
+              const applicationId = `principle-application-${p.id}`;
 
-                <div className="lab-principle-copy">
-                  <h4>{p.name}</h4>
-                  <p>{p.definition}</p>
-                </div>
+              return (
+                <article
+                  className={`lab-principle${isOpen ? " is-open" : ""}`}
+                  key={p.id}
+                >
+                  <button
+                    type="button"
+                    className="lab-principle-trigger"
+                    aria-expanded={isOpen}
+                    aria-controls={applicationId}
+                    onClick={() =>
+                      setOpenPrinciple(isOpen ? null : p.id)
+                    }
+                  >
+                    <span className="lab-principle-number">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
 
-                <span className="lab-principle-mark">↗</span>
-              </article>
-            ))}
+                    <span className="lab-principle-copy">
+                      <span className="lab-principle-name">{p.name}</span>
+                      <span className="lab-principle-definition">
+                        {p.definition}
+                      </span>
+                    </span>
+
+                    <span
+                      className="lab-principle-mark"
+                      aria-hidden="true"
+                    >
+                      {isOpen ? "−" : "↗"}
+                    </span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={applicationId}
+                        className="lab-principle-application"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <div className="lab-application-inner">
+                          <span className="lab-application-label">
+                            STRATEGIC APPLICATION
+                          </span>
+                          <p>{APPLICATIONS[p.id]}</p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </article>
+              );
+            })}
           </div>
 
           <div className="lab-index-footer">
@@ -102,4 +175,4 @@ export default function BehaviourLab() {
       </div>
     </Section>
   );
-}
+}           
