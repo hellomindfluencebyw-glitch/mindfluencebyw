@@ -82,7 +82,6 @@ export const RESULTS: ProjectResults[] = [
       },
     ],
   },
-  {
     {
   id: "aether-aura",
   title: "Aether Aura",
