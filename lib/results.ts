@@ -29,10 +29,11 @@ export const RESULTS: ProjectResults[] = [
         value: "13% (vs 6% nano-account average)",
       },
       { label: "Profile Views / 30 Days", value: "4.7K" },
-      {
+       {
         label: "Identity vs Product Content",
         value: "2.5x better performance",
-       ],
+      },
+    ],
   },
   {
     id: "muratish",
