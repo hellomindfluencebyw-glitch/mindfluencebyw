@@ -2999,13 +2999,86 @@ html[data-theme="light"] .service-editorial-footer {
 
 .lab-principle {
   position: relative;
+  display: block;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background .3s ease;
+}
+
+.lab-principle.is-open {
+  background: rgba(63, 233, 214, 0.035);
+}
+
+.lab-principle-trigger {
+  width: 100%;
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr) 20px;
   gap: 12px;
   align-items: start;
   padding: 18px 4px 18px 0;
-  border-bottom: 1px solid var(--border);
-  transition: padding .3s ease, background .3s ease;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lab-principle-trigger:focus-visible {
+  outline: 1px solid var(--teal);
+  outline-offset: 4px;
+}
+
+.lab-principle-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.lab-principle-name {
+  font: inherit;
+  font-weight: 600;
+}
+
+.lab-principle-definition {
+  font: inherit;
+  opacity: 0.72;
+  line-height: 1.6;
+}
+
+.lab-principle-mark {
+  justify-self: end;
+  transition: transform .3s ease, color .3s ease;
+}
+
+.lab-principle.is-open .lab-principle-mark {
+  color: var(--teal);
+  transform: rotate(180deg);
+}
+
+.lab-principle-application {
+  overflow: hidden;
+}
+
+.lab-application-inner {
+  padding: 0 36px 20px 46px;
+}
+
+.lab-application-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--teal);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 600;
+}
+
+.lab-application-inner p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.75;
+  opacity: 0.82;
 }
 
 .lab-principle:hover {
