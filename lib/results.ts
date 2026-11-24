@@ -34,7 +34,6 @@ export const RESULTS: ProjectResults[] = [
         value: "2.5x better performance",
       },
     ],
-  },
   {
     id: "muratish",
     title: "Muratish",
