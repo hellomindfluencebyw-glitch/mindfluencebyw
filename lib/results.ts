@@ -32,8 +32,8 @@ export const RESULTS: ProjectResults[] = [
       {
         label: "Identity vs Product Content",
         value: "2.5x better performance",
-      },
-    ],
+       ],
+  },
   {
     id: "muratish",
     title: "Muratish",
