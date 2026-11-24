@@ -145,13 +145,23 @@ export default function BehaviourLab() {
                       <motion.div
                         id={applicationId}
                         className="lab-principle-application"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{
-                          duration: 0.3,
-                          ease: "easeInOut",
-                        }}
+                        initial={{ height: 0, opacity: 0, y: -8 }}
+animate={{ height: "auto", opacity: 1, y: 0 }}
+exit={{ height: 0, opacity: 0, y: -6 }}
+transition={{
+  height: {
+    duration: 0.65,
+    ease: [0.22, 1, 0.36, 1],
+  },
+  opacity: {
+    duration: 0.45,
+    ease: "easeOut",
+  },
+  y: {
+    duration: 0.45,
+    ease: "easeOut",
+  },
+}}
                       >
                         <div className="lab-application-inner">
                           <span className="lab-application-label">
