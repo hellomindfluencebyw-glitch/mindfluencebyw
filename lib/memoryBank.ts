@@ -77,7 +77,7 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
   assetDir: "/work/aether-aura/",
   slideCount: 2,
   status: "client work",
-  question:
+     question:
     "A hair-care formulation brand with five products needed a recognisable identity and cohesive product presentation ahead of its public launch. How do you create a visual system that works across a brand and its physical products?",
   insight:
     "The brand needed more than a logo. Its identity had to translate into a cohesive visual direction that could carry through to product packaging and future brand communications.",
