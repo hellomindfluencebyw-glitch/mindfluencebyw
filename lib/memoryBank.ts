@@ -70,7 +70,6 @@ export const MEMORY_PROJECTS: MemoryProject[] = [
       "\"Not everything is a testimony\" opened the campaign with Wesley's own philosophy, not a product shot, and it became the single best-performing post of the entire launch.",
     secondaryPrinciples: ["social-proof", "narrative-transport", "familiarity"],
   },
-  {
     {
   id: "aether-aura",
   title: "Aether Aura",
